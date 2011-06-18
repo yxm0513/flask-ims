@@ -1,0 +1,12 @@
+<!doctype html>
+<title> Flask IMS</title>
+<body>
+	{% if msg %}
+	Note:  {{msg}}
+	{% endif %}
+	<form action='' method='post' enctype='multipart/form-data'>
+	File to upload: <input type='file' name='file'> </br>
+	description: <input type='text' name='description'> </br>
+	<input type='submit' value='Upload'>
+	</form>
+</body>

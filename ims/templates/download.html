@@ -1,0 +1,13 @@
+<!doctype html>
+<head>
+<title> Flask IMS Downloads </title>
+</head>
+<body>
+	Files for download:
+	 <ul>
+	  {% for file in files %}
+	  	<li> <a href="/download/{{file}}">{{file}}</a></li>
+	  {% endfor %}
+	 </ul>
+
+</body>

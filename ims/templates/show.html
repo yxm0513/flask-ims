@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %} Show {% endblock %}
+{% block content%}
+	Name is {{var.name}}, age is {{var.age}}
+
+	<form action='' method='post'>
+	Name: <input type='text' name='name'> </br>
+	Age: <input type='text' name='age'> </br>
+	<input type='submit' value='Submit'>
+	</form>
+{% endblock %}
