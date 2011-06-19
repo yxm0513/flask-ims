@@ -13,15 +13,12 @@ def replace_insensitive(string, target, replacement):
     Similar to string.replace() but is case insensitive
     Code borrowed from: http://forums.devshed.com/python-programming-11/case-insensitive-string-replace-490921.html
     """
-    import pdb
-    pdb.set_trace()
     no_case = string.lower()
     index = no_case.rfind(target.lower())
     if index >= 0:
-#return string[:index] + replacement + string[index + len(target):]
-        return string[:index] + replacement
+        return string[:index] + replacement + string[index + len(target):]
     else: # no results so return the original string
-        return string + replacement
+        return string
 
 
 class DebugToolbarExtension(object):
@@ -128,16 +125,12 @@ class DebugToolbarExtension(object):
             if response.is_sequence:
                 response_html = response.data.decode(response.charset)
                 toolbar_html = self.debug_toolbars[request].render_toolbar()
-                import pdb
-                pdb.set_trace()
-                out = replace_insensitive(response_html,'</body>',toolbar_html + '</body>');
-                response.response = [out]
-                '''response.response = [
+                response.response = [
                     replace_insensitive(
                         response_html,
                         '</body>',
                         toolbar_html + '</body>')]
-                '''
+                
     def render(self, template_name, context):
         template = self.jinja_env.get_template(template_name)
         return template.render(**context)

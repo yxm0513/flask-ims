@@ -5,6 +5,7 @@ from functools import wraps
 from flask import Flask, render_template
 from flaskext.sqlalchemy import SQLAlchemy
 from flaskext.debugtoolbar import DebugToolbarExtension
+from flaskext.login import LoginManager
 
 
 ###################### App Start #######################
@@ -12,6 +13,11 @@ app = Flask(__name__)
 
 # debug tool
 toolbar = DebugToolbarExtension(app)
+
+#login_manger
+loginmgr = LoginManager()
+loginmgr.setup_app(app)
+
 
 @app.route("/test")
 def test():
@@ -23,7 +29,10 @@ def test():
 
 # add modules
 from view import general
+from view import login
+
 app.register_module(general.mod)
+app.register_module(login.mod)
 
     
 if __name__ == '__main__':
