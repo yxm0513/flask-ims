@@ -22,9 +22,9 @@
 
     {% block header %}
 	    {% if current_user.is_authenticated() %}
-	        Welcome, {{ current_user.name }} | <a href="{{ url_for('index') }}">log out</a> </br>
+	        Welcome, {{ current_user.name }} | <a href="{{ url_for('login.login') }}">log out</a> </br>
 	    {% else %}
-	        you are not logged in | <a href="{{ url_for('index') }}">log in</a> </br>
+	        you are not loggined | <a href="{{ url_for('login.logout') }}">log in</a> </br>
 	    {% endif %}
     {% endblock %}
     

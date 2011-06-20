@@ -28,6 +28,3 @@ from view import general
 app.register_module(login.mod)
 app.register_module(general.mod)
 
-    
-if __name__ == '__main__':
-    app.run()
