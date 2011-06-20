@@ -21,10 +21,10 @@
     </div>
 
     {% block header %}
-	    {% if g.user %}
-	        Hi, {{ g.user.nickname() }}! <a href="{{ g.logout_url }}">logout</a> </br>
+	    {% if current_user.is_authenticated() %}
+	        Welcome, {{ current_user.name }} | <a href="{{ url_for('index') }}">log out</a> </br>
 	    {% else %}
-	        <a href="{{ g.login_url }}">login</a> </br>
+	        you are not logged in | <a href="{{ url_for('index') }}">log in</a> </br>
 	    {% endif %}
     {% endblock %}
     

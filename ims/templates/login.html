@@ -1,6 +1,14 @@
 {% extends "layout.html" %}
 {% block title %} Login {% endblock %}
 {% block content%}
-test
+<form action="" method=post>
+	 <dl>
+      <dt>Username:
+      <dd><input type=text name=username>
+      <dt>Remember Me:
+      <dd><input type=checkbox name=remember value=yes>
+      <dd><input type=submit value=Login>
+    </dl>
+</form>
 {% endblock %}
 <body>

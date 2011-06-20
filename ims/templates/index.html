@@ -1,6 +1,11 @@
 {% extends "layout.html" %}
 {% block title %} Front Page {% endblock %}
 {% block content%}
-test
+<h2> Welcome </h2>
+{% if current_user.is_authenticated() %}
+ok
+{% else %}
+false
+{% endif %}
 {% endblock %}
 <body>

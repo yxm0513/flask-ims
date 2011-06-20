@@ -1,5 +1,4 @@
 (function(window, document, version, callback) {
-    debugger;
 	var j, d;
 	var loaded = false;
 	if (!(j = window.jQuery) || version > j.fn.jquery || callback(j)) {
