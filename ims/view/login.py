@@ -1,4 +1,5 @@
-from flask import Module, render_template, redirect
+from flask import Module, render_template, redirect, request, \
+	flash, url_for
 from flaskext.login import  LoginManager, login_user, logout_user,\
         login_required, logout_user, UserMixin, AnonymousUser,\
         confirm_login, fresh_login_required
@@ -51,7 +52,7 @@ def login():
             remember = request.form.get("remember", "no") == "yes"
             if login_user(USER_NAMES[username], remember=remember):
                 flash("Logged in successfully!")
-                return redirect(request.args.get("next") or url_for("index"))
+                return redirect(request.args.get("next") or url_for("general.index"))
             else:
                 flash("Sorry, but you could not log in.")
         else:
@@ -65,4 +66,4 @@ def login():
 def logout():
     logout_user()
     flash("Logged out.")
-    return redirect(url_for("index"))
+    return redirect(url_for("general.index"))

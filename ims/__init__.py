@@ -3,7 +3,6 @@ import setting
 from functools import wraps
 
 from flask import Flask, render_template
-from flaskext.sqlalchemy import SQLAlchemy
 from flaskext.debugtoolbar import DebugToolbarExtension
 
 
@@ -20,6 +19,24 @@ def test():
 @app.route("/favicon.ico")
 def favicon():
     return app.send_static_file("image/favicon.ico")
+
+
+from models import db, User
+# database
+@app.route("/initdb")
+def initdb():
+	db.create_all()
+	admin = User('admin', 'admin@example.com')
+	guest = User('guest', 'guest@example.com')
+	db.session.add(admin)
+	db.session.add(guest)
+	db.session.commit()
+	return "init ok"
+
+@app.route("/dropdb")
+def dropdb():
+	db.drop_all()	
+	return "drop ok"
 
 # add modules
 from view import login
