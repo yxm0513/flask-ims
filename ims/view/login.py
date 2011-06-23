@@ -19,15 +19,6 @@ class LoginUser(UserMixin):
 class Anonymous(AnonymousUser):
     name = u"Anonymous"
 
-
-USERS = {
-    1: LoginUser(u"Notch", 1),
-    2: LoginUser(u"Steve", 2),
-    3: LoginUser(u"Creeper", 3, False),
-}
-
-USER_NAMES = dict((u.name, u) for u in USERS.itervalues())
-
 login_manager = LoginManager()
 
 login_manager.anonymous_user = Anonymous
@@ -37,7 +28,12 @@ login_manager.refresh_view = "reauth"
 
 @login_manager.user_loader
 def load_user(id):
-	return USERS.get(int(id))
+    return LoginUser(int(id), User.query.get(id).username)
+
+@login_manager.unauthorized_handler
+def unauthorized():
+    return render_template("unauthorized.html")
+
 
 from ims import app
 login_manager.setup_app(app)
@@ -61,11 +57,11 @@ def login():
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
-        r = User.query.filter(User.username == username and \
-            User.password == password)
-        if r:
+        user = User.query.filter_by(username = username).first()
+        if user and user.password == password:
             remember = request.form.get("remember", "no") == "yes"
-            if login_user(username, remember=remember):
+            loginuser = LoginUser(user.id, user.username)
+            if login_user(loginuser, remember=remember):
                 flash("Logged in successfully!")
                 return redirect(request.args.get("next") or url_for("general.index"))
             else:

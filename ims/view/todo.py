@@ -2,6 +2,7 @@ from flask import Module, request, flash, url_for, redirect, \
      render_template, abort
 from flaskext.sqlalchemy import SQLAlchemy
 from ims.models import db, Todo
+from flaskext.login import login_required
 
 
 mod = Module(__name__)
@@ -15,6 +16,7 @@ def show_all():
 
 
 @mod.route('/todo/new', methods=['GET', 'POST'])
+@login_required
 def new():
     if request.method == 'POST':
         if not request.form['title']:
@@ -30,8 +32,9 @@ def new():
     return render_template('todo/new.html')
 
 
-@mod.route('/todo/action', methods=['POST'])
-def update_done():
+@mod.route('/todo/do', methods=['POST'])
+@login_required
+def do():
     for todo in Todo.query.all():
         todo.done = ('done.%d' % todo.id) in request.form
         if ('del.%d' % todo.id) in request.form:

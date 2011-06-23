@@ -12,6 +12,11 @@ app = Flask(__name__)
 # debug tool
 toolbar = DebugToolbarExtension(app)
 
+@app.errorhandler(404)
+def not_found(error):
+    return render_template('404.html'), 404
+
+
 @app.route("/test")
 def test():
     return render_template("test.html")
@@ -39,7 +44,7 @@ def initdb():
 
 @app.route("/dropdb")
 def dropdb():
-	db.drop_all()	
+	db.drop_all()
 	return "drop ok"
 
 # add modules

@@ -8,30 +8,31 @@
 <title>Flask IMS | {% block title%} {%endblock%}</title>
 {% endblock %}
 <body>
-    <div class="flash">
-	    {% with messages = get_flashed_messages() %}
-	        {% if messages %}
-	        <ul>
-	            {% for message in messages %}
-	                <li>{{ message }}</li>
-	            {% endfor %}
-	        </ul>
-	        {% endif %}
-	    {% endwith %}
-    </div>
+	<div class="flash">
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+			<ul>
+				{% for message in messages %}
+					<li>{{ message }}</li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+		{% endwith %}
+	</div>
 
-    {% block header %}
-	    {% if current_user.is_authenticated() %}
-	        Welcome, {{ current_user.name }} | <a href="{{ url_for('login.logout') }}">log out</a> </br>
-	    {% else %}
-	        you are not loggined | <a href="{{ url_for('login.login') }}">log in</a> </br>
-	    {% endif %}
-    {% endblock %}
-    
-    {% block content %}
-    
-    {% endblock %}
-    
-    {% block footer %}
-    {% endblock %}
+	{% block header %}
+		{% if current_user.is_authenticated() %}
+			Welcome, {{ current_user.name }} | <a href="{{ url_for('login.logout') }}">log out</a> </br>
+		{% else %}
+			you are not loggined | <a href="{{ url_for('login.login') }}">log in</a> </br>
+		{% endif %}
+	{% endblock %}
+
+	{% block content %}
+
+	{% endblock %}
+
+	{% block footer %}
+	{% endblock %}
+
 </body>
