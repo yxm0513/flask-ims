@@ -58,18 +58,20 @@ def del_user(name = None, password = None, email = None):
 
 @mod.route("/login", methods=["GET", "POST"])
 def login():
-    if request.method == "POST" and "username" in request.form:
+    if request.method == "POST":
         username = request.form["username"]
-        for user in User.query.all():
-            if username == user.username:
-                remember = request.form.get("remember", "no") == "yes"
-                if login_user(username, remember=remember):
-                    flash("Logged in successfully!")
-                    return redirect(request.args.get("next") or url_for("general.index"))
-                else:
-                    flash("Sorry, but you could not log in.")
+        password = request.form["password"]
+        r = User.query.filter(User.username == username and \
+            User.password == password)
+        if r:
+            remember = request.form.get("remember", "no") == "yes"
+            if login_user(username, remember=remember):
+                flash("Logged in successfully!")
+                return redirect(request.args.get("next") or url_for("general.index"))
+            else:
+                flash("Sorry, but you could not log in.")
         else:
-            flash(u"Invalid username.")
+            flash(u"Invalid username or password.")
     return render_template("login.html")
 
 

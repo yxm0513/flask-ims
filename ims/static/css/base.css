@@ -15,7 +15,11 @@ body{
     margin-bottom: 0.3px;
     background: #CEE5F5;
 }
+
 .flash {
 	color: red;
     border: 0px solid #AACBE2;
+}
+
+.todo {
 }
