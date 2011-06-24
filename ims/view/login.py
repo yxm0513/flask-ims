@@ -28,11 +28,14 @@ login_manager.refresh_view = "reauth"
 
 @login_manager.user_loader
 def load_user(id):
-    return LoginUser(int(id), User.query.get(id).username)
+	try:
+		return LoginUser(int(id), User.query.get(id).username)
+	except:
+		return None
 
 @login_manager.unauthorized_handler
 def unauthorized():
-    return render_template("unauthorized.html")
+	return render_template("unauthorized.html")
 
 
 from ims import app

@@ -25,34 +25,14 @@ def test():
 def favicon():
     return app.send_static_file("image/favicon.ico")
 
-
-from models import db, User, Todo
-# database
-@app.route("/initdb")
-def initdb():
-	db.create_all()
-	admin = User('admin', '111111', 'admin@example.com')
-	guest = User('guest', '222222', 'guest@example.com')
-	db.session.add(admin)
-	db.session.add(guest)
-	todo1 = Todo('check in code', 'modify reset')
-	todo2 = Todo('talk with somebody', 'about cloud')
-	db.session.add(todo1)
-	db.session.add(todo2)
-	db.session.commit()
-	return "init ok"
-
-@app.route("/dropdb")
-def dropdb():
-	db.drop_all()
-	return "drop ok"
-
 # add modules
+
 from view import login
+from view import admin
 from view import general
 from view import todo
 
 app.register_module(login.mod)
+app.register_module(admin.mod)
 app.register_module(general.mod)
-app.register_module(todo.mod)
-
+app.register_module(todo.mod, url_prefix='/todo')

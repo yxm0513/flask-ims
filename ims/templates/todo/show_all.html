@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block title %} Todos {% endblock %}
-{% block content%}
+{% block main%}
   <h2>All Items</h2>
   <form action="{{ url_for('todo.do') }}" method=post>
     <table class=todos>

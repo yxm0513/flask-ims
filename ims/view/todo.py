@@ -8,14 +8,14 @@ from flaskext.login import login_required
 mod = Module(__name__)
 
 
-@mod.route('/todo')
+@mod.route('/')
 def show_all():
     return render_template('todo/show_all.html',
         todos=Todo.query.order_by(Todo.pub_date.desc()).all()
     )
 
 
-@mod.route('/todo/new', methods=['GET', 'POST'])
+@mod.route('/new', methods=['GET', 'POST'])
 @login_required
 def new():
     if request.method == 'POST':
@@ -32,7 +32,7 @@ def new():
     return render_template('todo/new.html')
 
 
-@mod.route('/todo/do', methods=['POST'])
+@mod.route('/do', methods=['POST'])
 @login_required
 def do():
     for todo in Todo.query.all():
