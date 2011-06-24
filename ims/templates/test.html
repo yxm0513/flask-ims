@@ -4,4 +4,15 @@
 </head>
 <body>
 <h1>test<h1>
+    {% if form.errors %}
+     {{ form.errors }}
+    {% endif %}
+    <form action="" method=post>
+        <dl>
+            <dt> {{ form.name.label }}
+            <dt> {{ form.name }}
+            <dt> {{ form.submit }}
+        </dl>
+    </form>
+    
 </body>

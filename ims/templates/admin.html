@@ -1,15 +1,30 @@
 {% extends "layout.html" %}
 {% block title %} flask-ims Administration {% endblock %}
-{% block header %} {% endblock %}
 {% block main%}
   <h2>flask-ims Administration</h2>
   <ul>
-	<li> DADATBASE
-		<ul>
-			<li><a href="{{ url_for('admin.initdb')}}">Init database</a></br>
-			<li><a href="{{ url_for('admin.dropdb')}}">Drop database</a></br>
-		</ul>
-	<li> User
-	<li> Todo
+    <li> DADATBASE
+        <ul>
+            <li><a href="{{ url_for('admin.initdb')}}">Init database</a></br>
+            <li><a href="{{ url_for('admin.dropdb')}}">Drop database</a></br>
+        </ul>
+    <li> User
+        <li> add user
+        <form action="add_user" method="post">
+            <dl>
+              <dt>Username:  <input type=text name=username>
+              <dt>Password:  <input type=text name=password>
+              <dt>Email:     <input type=text name=email>
+              <dt><input type=submit value=Add>
+            </dl>
+        </form>
+        <li> del user
+        <form action="del_user" method="post">
+            <dl>
+              <dt>Username:  <input type=text name=username>
+              <dt><input type=submit value=Del>
+            </dl>
+        </form>
+    <li> Todo
   </ul>
 {% endblock %}

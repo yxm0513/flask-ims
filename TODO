@@ -1,6 +1,17 @@
-finish login with user -- done
-add database admin, add/remove/update records
+finish login with user -- done, with password encrypted, add register
+form validation
+add test
+add database admin, add/remove/update user
 add todo assignment
 markdown: make it can display information from text.like a wiki
 add chineses support
 add search
+项目实现的主要功能：
+
+用户系统
+站内邮件系统
+基本的sns（关注/我说）
+商品点评推荐
+任务平台
+兑换平台
+后台管理

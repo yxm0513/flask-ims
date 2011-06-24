@@ -8,23 +8,23 @@
 <title>Flask IMS | {% block title%} {%endblock%}</title>
 {% endblock %}
 <body>
-	<div of="flash">
-	  {% for message in get_flashed_messages() %}
-		<div class="message">{{ message }} </div>
-	  {% endfor %}
-	</div>
+    <div of="flash">
+      {% for message in get_flashed_messages() %}
+        <div class="message">{{ message }} </div>
+      {% endfor %}
+    </div>
 
-	{% block header %}
-		{% include "nav.html"%}
-		{% include "header.html"%}
-	{% endblock %}
+    {% block header %}
+        {% include "nav.html"%}
+        {% include "header.html"%}
+    {% endblock %}
 
-	{% block main %}
+    {% block main %}
 
-	{% endblock %}
+    {% endblock %}
 
-	{% block footer %}
-		{% include "footer.html"%}
-	{% endblock %}
+    {% block footer %}
+        {% include "footer.html"%}
+    {% endblock %}
 
 </body>

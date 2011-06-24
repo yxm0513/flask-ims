@@ -4,7 +4,7 @@ from functools import wraps
 
 from flask import Flask, render_template
 from flaskext.debugtoolbar import DebugToolbarExtension
-
+from forms import TestForm
 
 ###################### App Start #######################
 app = Flask(__name__)
@@ -19,7 +19,8 @@ def not_found(error):
 
 @app.route("/test")
 def test():
-    return render_template("test.html")
+    form = TestForm()
+    return render_template("test.html", form = form)
 
 @app.route("/favicon.ico")
 def favicon():
