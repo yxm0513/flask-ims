@@ -1,11 +1,13 @@
 {% extends "layout.html" %}
 {% block title %} Front Page {% endblock %}
 {% block main%}
-<h2> Welcome </h2>
-{% if current_user.is_authenticated() %}
-ok
-{% else %}
-false
-{% endif %}
+<h2> Welcome</h2>
+<h3> ims -- inventory management system </h3>
+<p>
+	Ims is build with Flask, SQLite3.
+	<ul>Currently, it have :
+		<li><a href="{{ url_for('todo.index') }}" > Todo </a>
+	</ul>
+</p>
 {% endblock %}
 <body>

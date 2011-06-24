@@ -8,6 +8,6 @@
     <p><textarea name=text rows=10 cols=40>{{ request.form.text }}</textarea>
     <p>
       <input type=submit value="Create entry">
-      <a href="{{ url_for('todo.show_all') }}">Back to list</a>
+      <a href="{{ url_for('todo.index') }}">Back to list</a>
   </form>
 {% endblock %}

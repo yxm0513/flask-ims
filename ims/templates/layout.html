@@ -1,6 +1,6 @@
 <!doctype html>
 {% block head %}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('.static', filename='css/base.css') }}"/>
     <script type=text/javascript src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.js"></script>
     <!--
     <script type=text/javascript src="{{ url_for('static', filename='js/ims.js') }}"></script>
@@ -8,24 +8,15 @@
 <title>Flask IMS | {% block title%} {%endblock%}</title>
 {% endblock %}
 <body>
-	<div class="flash">
-		{% with messages = get_flashed_messages() %}
-			{% if messages %}
-			<ul>
-				{% for message in messages %}
-					<li>{{ message }}</li>
-				{% endfor %}
-			</ul>
-			{% endif %}
-		{% endwith %}
+	<div of="flash">
+	  {% for message in get_flashed_messages() %}
+		<div class="message">{{ message }} </div>
+	  {% endfor %}
 	</div>
 
 	{% block header %}
-		{% if current_user.is_authenticated() %}
-			Welcome, {{ current_user.name }} | <a href="{{ url_for('login.logout') }}">log out</a> </br>
-		{% else %}
-			you are not loggined | <a href="{{ url_for('login.login') }}">log in</a> </br>
-		{% endif %}
+		{% include "nav.html"%}
+		{% include "header.html"%}
 	{% endblock %}
 
 	{% block main %}
@@ -33,6 +24,7 @@
 	{% endblock %}
 
 	{% block footer %}
+		{% include "footer.html"%}
 	{% endblock %}
 
 </body>

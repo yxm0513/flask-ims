@@ -9,8 +9,8 @@ mod = Module(__name__)
 
 
 @mod.route('/')
-def show_all():
-    return render_template('todo/show_all.html',
+def index():
+    return render_template('todo/index.html',
         todos=Todo.query.order_by(Todo.pub_date.desc()).all()
     )
 
@@ -28,7 +28,7 @@ def new():
             db.session.add(todo)
             db.session.commit()
             flash(u'Todo item was successfully created')
-            return redirect(url_for('show_all'))
+            return redirect(url_for('index'))
     return render_template('todo/new.html')
 
 
@@ -41,4 +41,4 @@ def do():
             db.session.delete(todo)
     flash('Updated status')
     db.session.commit()
-    return redirect(url_for('show_all'))
+    return redirect(url_for('index'))
