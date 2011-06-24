@@ -3,6 +3,7 @@ from flask import Module, render_template, redirect, request, \
 from flaskext.login import  LoginManager, login_user, logout_user,\
         login_required, logout_user, UserMixin, AnonymousUser,\
         confirm_login, fresh_login_required
+from werkzeug import generate_password_hash, check_password_hash
 from ims.models import db, User
 
 mod = Module(__name__)
@@ -28,30 +29,18 @@ login_manager.refresh_view = "reauth"
 
 @login_manager.user_loader
 def load_user(id):
-	try:
-		return LoginUser(int(id), User.query.get(id).username)
-	except:
-		return None
+    try:
+        return LoginUser(int(id), User.query.get(id).username)
+    except:
+        return None
 
 @login_manager.unauthorized_handler
 def unauthorized():
-	return render_template("unauthorized.html")
+    return render_template("unauthorized.html")
 
 
 from ims import app
 login_manager.setup_app(app)
-
-def add_user(name = None, password = None, email = None):
-    user = User(name, password, email)
-    db.session.add(user)
-    db.session.commit()
-    app.logger.debug('add user:%s ok'% user.name)
-    
-def del_user(name = None, password = None, email = None):
-    user = User(name, password, email)
-    db.session.drop(user)
-    db.session.commit()
-    app.logger.debug('del user:%s ok'% user.name)
 
 # URL
 
