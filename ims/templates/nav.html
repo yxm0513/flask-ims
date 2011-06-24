@@ -1,0 +1,11 @@
+<div class="nav">
+		<div class="metanav">
+		{% if current_user.is_authenticated() %}
+			Welcome, {{ current_user.name }} | <a href="{{ url_for('login.logout') }}">log out</a> 
+			| <a href="{{ url_for('general.settings') }}">settings</a>
+		{% else %}
+			<a href="{{ url_for('login.login') }}">log in</a> 
+		{% endif %}
+		| <a href="{{ url_for('general.help') }}">help</a>
+		</div>
+</div>

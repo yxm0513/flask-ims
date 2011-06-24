@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+{% block title %} flask-ims installation {% endblock %}
+{% block header %} {% endblock %}
+{% block main%}
+  <h2>Installation</h2>
+  <a href="{{ url_for('install.initdb')}}">Init database</a></br>
+  <a href="{{ url_for('install.dropdb')}}">Drop database</a></br>
+{% endblock %}
