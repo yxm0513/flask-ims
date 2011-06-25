@@ -15,6 +15,7 @@
  * mashups
  * flask-slik
 
+ other: Scrapy BeautifulSoup Xapian mechanize
 项目实现的主要功能：
     用户系统
     站内邮件系统
