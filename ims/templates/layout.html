@@ -8,17 +8,21 @@
 <title>Flask IMS | {% block title%} {%endblock%}</title>
 {% endblock %}
 <body>
-    <div of="flash">
-      {% for message in get_flashed_messages() %}
-        <div class="message">{{ message }} </div>
-      {% endfor %}
+    <div class="flash">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="{{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
     </div>
 
     {% block header %}
         {% include "nav.html"%}
         {% include "header.html"%}
     {% endblock %}
-
+    
     {% block main %}
 
     {% endblock %}

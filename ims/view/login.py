@@ -5,7 +5,7 @@ from flaskext.login import  LoginManager, login_user, logout_user,\
         confirm_login, fresh_login_required, current_user
 from werkzeug import check_password_hash, generate_password_hash
 from ims.models import db, User
-from ims.forms import LoginForm
+from ims.forms import LoginForm, RegisterForm
 
 mod = Module(__name__)
 
@@ -49,23 +49,22 @@ login_manager.setup_app(app)
 @mod.route("/login", methods=["GET", "POST"])
 def login():
     form = LoginForm(request.form)
-    import pdb
-    pdb.set_trace()
-    #if request.method == "POST" and form.validate_on_submit():
-    if request.method == "POST":
+    if request.method == "POST" and form.validate_on_submit():
         username = form.username.data
         password = form.password.data
-        remember = form.remember.data
+        #remember = form.remember.data
+        remember = 1
         user = User.query.filter_by(username = username).first()
-        if user and check_password_hash(user.password, password):
-            loginuser = LoginUser(user.id, user.username)
-            if login_user(loginuser, remember=remember):
-                flash("Logged in successfully!")
-                return redirect(request.args.get("next") or url_for("general.index"))
+        if not len(form.errors):
+            if user and check_password_hash(user.password, password):
+                loginuser = LoginUser(user.id, user.username)
+                if login_user(loginuser, remember=remember):
+                    flash("Logged in successfully!")
+                    return redirect(request.args.get("next") or url_for("general.index"))
+                else:
+                    flash("Sorry, but you could not log in.", 'error')
             else:
-                flash("Sorry, but you could not log in.")
-        else:
-            flash(u"Invalid username or password.")
+                flash("Incorrect username or password", 'error')
     return render_template("login.html", form = form)
 
 @mod.route("/logout")
@@ -78,17 +77,16 @@ def logout():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     """Registers the user."""
+    form = RegisterForm(request.form)
     if not (current_user.is_anonymous()):
         flash("you are logined")
-        return redirect(url_for("general.index"))
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        password2 = request.form['password2']
-        email = request.form['email']
-        if password != password2:
-            flash('The two passwords do not match')
-        elif User.query.filter_by(username = username).first() is not None:
+        return render_template('register.html', form = form)
+    if request.method == 'POST' and form.validate_on_submit():
+        username = form.username.data
+        password = form.password.data
+        password2 = form.password2.data
+        email = form.email.data
+        if User.query.filter_by(username = username).first():
             flash('The username is already taken')
         else:
             hash_pass = generate_password_hash(password, method='sha1', salt_length=8)
@@ -96,8 +94,9 @@ def register():
             try:
                 db.session.add(user)
                 db.session.commit()
-                return render_template('register.html')
+                return render_template('registerok.html')
             except:
                 flash('You were register failed, pls contact %s for help.' % app.config['ADMIN'][1])
-                return render_template('register.html')
-    return render_template('register.html')
+    else:
+        return render_template('register.html', form = form)
+    return render_template('register.html', form = form)

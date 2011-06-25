@@ -1,25 +1,27 @@
 {% extends "layout.html" %}
 {% block title %}Register{% endblock %}
-{% block header %} {% endblock %}
 {% block main %}
-{% if request.method != 'POST' %}
-  <h2>Sign Up</h2>
-  <form action="" method=post>
+<h2>Sign Up</h2>
+
+<div class="error">
+    {% if form.errors %}
+        {% for error in form.errors %}
+             Input Error: {{error}} </br>
+        {% endfor %}
+    {% endif %}
+</div>
+    
+<form action="" method=post>
     <dl>
-      <dt>Username:
-      <dd><input type=text name=username size=30">
-      <dt>E-Mail:
-      <dd><input type=text name=email size=30>
-      <dt>Password:
-      <dd><input type=password name=password size=30>
-      <dt>Password <small>(repeat)</small>:
-      <dd><input type=password name=password2 size=30>
+        <dt> {{ form.username.label }} :
+        <dt> {{ form.username }}
+        <dt> {{ form.email.label }} :
+        <dt> {{ form.email }}
+        <dt> {{ form.password.label }} :
+        <dt> {{ form.password }}
+        <dt> {{ form.password2.label }} :
+        <dt> {{ form.password2 }}
     </dl>
-    <div class=actions><input type=submit value="Register"></div>
-  </form>
-{% else %}
-    <p>
-    Congratulations, you were successfully registered and can login now. <a href="{{url_for('login.login')}}">Sign in</a>
-    </p>
-{% endif %}
+    <div class=actions> {{ form.submit }} </div>
+</form>
 {% endblock %}

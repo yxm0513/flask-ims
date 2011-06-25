@@ -9,8 +9,6 @@ body{
 }
 
 
-
-
 .todo {
 }
 
@@ -31,8 +29,14 @@ body{
 	font-family: "Courier New", Arial;
 }
 
-.message {
+
+.error {
 	color: red;
+	font-size:10px;
+}
+
+.message {
+	color: #64CF4B;
 	font-size:10px;
 }
 
