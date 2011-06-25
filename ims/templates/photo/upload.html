@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block main %}
+  <h2>New Todo Item</h2>
+  <form method=POST enctype=multipart/form-data action="{{ url_for('photo.upload') }}">
+       <dd> {{ form.photo.label }} :
+       <dd> {{ form.photo }}
+       <dd> {{ form.submit }}
+  </form>
+{% endblock %}

@@ -4,10 +4,12 @@ from functools import wraps
 
 from flask import Flask, render_template
 from flaskext.debugtoolbar import DebugToolbarExtension
-from forms import TestForm
 
 ###################### App Start #######################
 app = Flask(__name__)
+
+import setting
+app.config.from_object(setting)
 
 # debug tool
 toolbar = DebugToolbarExtension(app)
@@ -16,7 +18,7 @@ toolbar = DebugToolbarExtension(app)
 def not_found(error):
     return render_template('404.html'), 404
 
-
+from forms import TestForm
 @app.route("/test")
 def test():
     form = TestForm()
@@ -32,8 +34,10 @@ from view import login
 from view import admin
 from view import general
 from view import todo
+from view import photo
 
 app.register_module(login.mod)
 app.register_module(admin.mod)
 app.register_module(general.mod)
 app.register_module(todo.mod, url_prefix='/todo')
+app.register_module(photo.mod, url_prefix='/photo')

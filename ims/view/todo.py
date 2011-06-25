@@ -1,6 +1,5 @@
 from flask import Module, request, flash, url_for, redirect, \
      render_template, abort
-from flaskext.sqlalchemy import SQLAlchemy
 from ims.models import db, Todo
 from flaskext.login import login_required
 

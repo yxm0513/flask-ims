@@ -41,8 +41,11 @@ body{
 }
 
 .footer {
-    /*
+	height: 20px;
+	border-top: 1px solid #CEE5F5;
+	/*
+	background: #CEE5F5;
+	*/
 	margin: 0 auto;
 	text-align: center;
-    */
 }

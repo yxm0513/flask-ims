@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block title %} flask-ims Administration {% endblock %}
+{% block main%}
+  <h2>flask-ims Administration</h2>
+  <ul>
+    <li> Database
+        <ul>
+            <li><a href="{{ url_for('admin.initdb')}}">Create database</a></br>
+            <li><a href="{{ url_for('admin.dropdb')}}">Drop database</a></br>
+        </ul>
+    <li> User
+        {% include "admin/add_user.html" %}
+        {% include "admin/del_user.html" %}
+    <li> Todo
+  </ul>
+{% endblock %}

@@ -5,6 +5,7 @@
             | <a href="{{ url_for('general.settings') }}">settings</a>
         {% else %}
             <a href="{{ url_for('login.login') }}">log in</a> 
+            | <a href="{{ url_for('login.register') }}">register</a> 
         {% endif %}
         | <a href="{{ url_for('general.help') }}">help</a>
         </div>

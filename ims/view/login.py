@@ -28,6 +28,9 @@ login_manager.login_view = "login"
 login_manager.login_message = u"Please log in to access this page."
 login_manager.refresh_view = "reauth"
 
+from ims import app
+login_manager.setup_app(app)
+
 @login_manager.user_loader
 def load_user(id):
     try:
@@ -38,10 +41,6 @@ def load_user(id):
 @login_manager.unauthorized_handler
 def unauthorized():
     return render_template("unauthorized.html")
-
-
-from ims import app
-login_manager.setup_app(app)
 
 
 # URL
@@ -74,7 +73,7 @@ def logout():
     flash("Logged out.")
     return redirect(url_for("general.index"))
 
-@app.route('/register', methods=['GET', 'POST'])
+@mod.route('/register', methods=['GET', 'POST'])
 def register():
     """Registers the user."""
     form = RegisterForm(request.form)

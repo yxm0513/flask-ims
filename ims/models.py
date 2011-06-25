@@ -1,5 +1,5 @@
-from flaskext.sqlalchemy import SQLAlchemy
 from datetime import datetime
+from flaskext.sqlalchemy import SQLAlchemy
 
 from ims import app
 
@@ -37,3 +37,22 @@ class Todo(db.Model):
         self.done = False
         self.pub_date = datetime.utcnow()
 
+class Photo(db.Model):
+    id = db.Column('todo_id', db.Integer, primary_key=True)
+    filename = db.Column(db.String(60))
+    user = db.Column(db.Integer)
+    
+    def __init__(self, filename, user):
+        self.filename = filename
+        self.user = user
+
+    def store(self):
+        db.session.add(self)
+        db.session.commit()
+    
+    @classmethod
+    def load(cls, id):
+        photo = cls.query.filter_by(user = id).first()
+        return photo
+            
+        
