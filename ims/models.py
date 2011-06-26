@@ -19,12 +19,21 @@ class User(db.Model):
     def __repr__(self):
         return '<User %r>' % self.username
 
+    def store_to_db(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def delete_from_db(self):
+        db.session.remove(self)
+        db.session.commit()
+
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
 
 
 class Todo(db.Model):
-    __tablename__ = 'todos'
+    __tablename__ = 'todo'
+    
     id = db.Column('todo_id', db.Integer, primary_key=True)
     title = db.Column(db.String(60))
     text = db.Column(db.String)
@@ -37,6 +46,18 @@ class Todo(db.Model):
         self.done = False
         self.pub_date = datetime.utcnow()
 
+    def __repr__(self):
+        return '<User %r>' % self.title
+
+    def store_to_db(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def delete_from_db(self):
+        db.session.remove(self)
+        db.session.commit()
+
+
 class Photo(db.Model):
     id = db.Column('todo_id', db.Integer, primary_key=True)
     filename = db.Column(db.String(60))
@@ -46,13 +67,17 @@ class Photo(db.Model):
         self.filename = filename
         self.user = user
 
-    def store(self):
+    def __repr__(self):
+        return '<User %r>' % self.filename
+
+    def store_to_db(self):
         db.session.add(self)
         db.session.commit()
-    
+
+    def delete_from_db(self):
+        db.session.remove(self)
+        db.session.commit()
+         
     @classmethod
-    def load(cls, id):
-        photo = cls.query.filter_by(user = id).first()
-        return photo
-            
-        
+    def get(cls, id):
+        return cls.query.filter_by(user = id).first()

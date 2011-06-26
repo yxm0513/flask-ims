@@ -13,7 +13,6 @@ def index():
         todos=Todo.query.order_by(Todo.pub_date.desc()).all()
     )
 
-
 @mod.route('/new', methods=['GET', 'POST'])
 @login_required
 def new():
@@ -24,8 +23,7 @@ def new():
             flash('Text is required', 'error')
         else:
             todo = Todo(request.form['title'], request.form['text'])
-            db.session.add(todo)
-            db.session.commit()
+            todo.store_to_db()
             flash(u'Todo item was successfully created')
             return redirect(url_for('index'))
     return render_template('todo/new.html')
@@ -37,7 +35,6 @@ def do():
     for todo in Todo.query.all():
         todo.done = ('done.%d' % todo.id) in request.form
         if ('del.%d' % todo.id) in request.form:
-            db.session.delete(todo)
+            todo.delete_from_db()
     flash('Updated status')
-    db.session.commit()
     return redirect(url_for('index'))

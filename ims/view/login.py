@@ -91,8 +91,7 @@ def register():
             hash_pass = generate_password_hash(password, method='sha1', salt_length=8)
             user = User(username, hash_pass, email)
             try:
-                db.session.add(user)
-                db.session.commit()
+                user.store_to_db()
                 return render_template('registerok.html')
             except:
                 flash('You were register failed, pls contact %s for help.' % app.config['ADMIN'][1])

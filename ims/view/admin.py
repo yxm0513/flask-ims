@@ -24,28 +24,23 @@ def initdb():
         guest_pass = generate_password_hash('guest', method='sha1', salt_length=8)
         admin = User('admin', admin_pass, 'admin@example.com')
         guest = User('guest', guest_pass, 'guest@example.com')
-        db.session.add(admin)
+        # save them into database
+        admin.store_to_db()
         flash("user admin added", 'message')
-        db.session.add(guest)
-        flash("user admin added", 'message')
+        guest.store_to_db()
+        flash("user guest added", 'message')
     except:
         flash("create User table failed.", 'error')
     
     try:
         todo1 = Todo('check in code', 'modify reset')
         todo2 = Todo('talk with somebody', 'about cloud')
-        db.session.add(todo1)
+        todo1.store_to_db()
         flash("todo #1 added", 'message')
-        db.session.add(todo2)
+        todo2.store_to_db()
         flash("todo #2 added", 'message')
     except:
         flash("create Todo table failed.", 'error')
-
-    try:
-        db.session.commit()
-        flash("database commit ok")
-    except:
-        flash("database commit failed.", 'error')
     
     return redirect(url_for('index'))
 
@@ -69,8 +64,7 @@ def add_user():
         hash_pass = generate_password_hash(password, method='sha1', salt_length=8)
         user = User(username, hash_pass, email)
         try:
-            db.session.add(user)
-            db.session.commit()
+            user.store_to_db()
             flash("add user %s done." % user.username)
         except:
             flash("add user failed %s" % user.username, 'error')
@@ -89,8 +83,7 @@ def del_user():
             flash('The username has not taken')
         else:
             try:
-                db.session.delete(user)
-                db.session.commit()
+                user.delete_from_db()
                 flash("del user %s done." % user.username)
             except:
                 flash("del user failed %s" % user.username, 'error')
