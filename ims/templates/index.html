@@ -1,12 +1,13 @@
 {% extends "layout.html" %}
 {% block title %} Front Page {% endblock %}
 {% block main%}
-<h2> Welcome</h2>
-<h3> ims -- inventory management system </h3>
+<h2> Welcome to ims -- inventory management system</h2>
 <p>
-    Ims is build with Flask, SQLite3.
-    <h4>Currently, it have :</h4>
-    <ul>
+    A IMS build with Flask, SQLite3. 
+</p>
+<p>
+    Currently, it have :
+    <ul> 
         <li><a href="{{ url_for('admin.index') }}" > Admin </a>
         <li><a href="{{ url_for('todo.index') }}" > Todo </a>
         <li><a href="{{ url_for('photo.index') }}" > Photo </a>
