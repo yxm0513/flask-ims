@@ -2,13 +2,13 @@
  * form validation -- done
  * add/remove/update user -- done
  * upload support -- done
+ * chinese support
  * menu 
+ * test : http://packages.python.org/Flask-Testing/
  * ajax menu with jQuery
  * table relatetionship
  * image support
- * chinese support
  * search : Lucene solr
- * test : http://packages.python.org/Flask-Testing/
  * database admin(CRUD)
  * todo assignment
  * markdown: make it can display information from text.like a wiki : splinx

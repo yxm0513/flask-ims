@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import sys, os
 from ims import app
 
