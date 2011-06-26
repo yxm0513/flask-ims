@@ -2,17 +2,20 @@
  * form validation -- done
  * add/remove/update user -- done
  * upload support -- done
- * chinese support
+ * chinese support : http://packages.python.org/Flask-Babel/ 
+    * maybe not need this, just use chinese in code
  * menu 
+ * pagenation
  * test : http://packages.python.org/Flask-Testing/
  * ajax menu with jQuery
  * table relatetionship
- * image support
+ * image support -- PIL
  * search : Lucene solr
  * database admin(CRUD)
  * todo assignment
  * markdown: make it can display information from text.like a wiki : splinx
  * mashups
+ * RSS feeds
  * flask-slik
 
  other: Scrapy BeautifulSoup Xapian mechanize
@@ -24,3 +27,7 @@
     任务平台
     兑换平台
     后台管理
+站内消息系统：
+    每个用户信息里面新建一个消息数据表。主要部分有1，标题2，内容3，阅读与否（可以用0或1作判断） 
+    如果管理员发了信息，自动往每个用户里面添加消息数据，然后在用户界面里调用，作一个判断，如果有新消息，弹出提示或声音。如果没有则照常，当然用户可以对消息进行删除或者发送给其它用户。
+
