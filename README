@@ -1,1 +1,13 @@
-A ims base on flask and flaskext.
+ims -- inventoy management system
+    * it's a project for leaning purpose
+    * aims to get some python web development skills
+    * following technoledge will involved:
+        flask and flaskext
+        CSS
+        jQuery
+        SQlite3
+        SQLAlchmey
+
+        
+        By:
+        simon.yang.sh <at> gamil <dot> com   
