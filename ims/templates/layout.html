@@ -19,8 +19,11 @@
     </div>
 
     {% block header %}
+        <div id="header">
         {% include "nav.html"%}
-        {% include "header.html"%}
+        {% include "logo.html"%}
+        {% include "header-other.html"%}
+        </div>
     {% endblock %}
     
     {% block main %}

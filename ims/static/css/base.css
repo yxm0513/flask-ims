@@ -12,8 +12,27 @@ body{
 .todo {
 }
 
-.header {
+#header {
+	background-attachment:initial;
+	background-clip:initial;
+	background-color:initial;
+	background-image:url(http://www.catswhocode.com/blog/wp-content/themes/cat-stellation/images/bg.png);
+	background-origin:initial;
+	background-repeat:repeat no-repeat;
+	height:249px;
+}
 
+#logo {
+	background-attachment:initial;
+	background-clip:initial;
+	background-color:initial;
+	background-image:url(http://www.catswhocode.com/blog/wp-content/themes/cat-stellation/images/fisto-med.png);
+	background-origin:initial;
+	background-repeat:no-repeat no-repeat;
+	display:block;
+	height:249px;
+	text-indent:-9999px;
+	width:768px;
 }
 
 .metanav {
