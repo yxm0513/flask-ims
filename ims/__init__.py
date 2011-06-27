@@ -24,9 +24,13 @@ def test():
     form = TestForm()
     return render_template("test.html", form = form)
 
-@app.route("/jquery")
-def jquery():
-    return render_template("jquery.html")
+@app.route("/jquery1")
+def jquery1():
+    return render_template("jquery_antimate.html")
+
+@app.route("/jquery2")
+def jquery2():
+    return render_template("jquery_slide.html")
 
 @app.route("/ajax")
 def test_json():

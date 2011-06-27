@@ -120,32 +120,32 @@
 <div id="guy">
     <div id="guycontainer">
         <div class="frame">
-            <img src="{{ url_for('.static', filename='image/guyframe.png') }}"/>
+            <img src="{{ url_for('.static', filename='image/antimate/guyframe.png') }}"/>
         </div>
         <div id="guyoverlay">
             <div id="guyedge">&nbsp;</div>
             <div id="guyblock">&nbsp;</div>
         </div>
-        <img class="loadpic" src="{{ url_for('.static', filename='image/guy.jpg') }}"/>
+        <img class="loadpic" src="{{ url_for('.static', filename='image/antimate/guy.jpg') }}"/>
     </div>
 </div>
 
 <div id="buttonbox">
     <h2>Animate Image Filling Up Using jQuery</h2>
     <br/><br/>
-    <a href="{{ url_for('jquery')}}">Reset Animations</a>
+    <a href="{{ url_for('jquery1')}}">Reset Animations</a>
 </div>
 
 <div id="dude">
     <div id="dudecontainer">
         <div class="frame">
-            <img src="{{ url_for('.static', filename='image/dudeframe.png') }}"/>
+            <img src="{{ url_for('.static', filename='image/antimate/dudeframe.png') }}"/>
         </div>
         <div id="dudeoverlay">
             <div id="dudeblock">&nbsp;</div>
             <div id="dudeedge">&nbsp;</div>
         </div>
-        <img class="loadpic" src="{{ url_for('.static', filename='image/dude.jpg') }}"/>
+        <img class="loadpic" src="{{ url_for('.static', filename='image/antimate/dude.jpg') }}"/>
     </div>
 </div>
 {% endblock %}

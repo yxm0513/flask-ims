@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block head_ext %}
+<script src="{{ url_for('.static', filename='js/jquery.cycle.all.min.js')}}"></script>
+
+<style type="text/css">
+*{margin:0; padding:0; border:0;}
+body{background:#FAFAFA;}
+
+#top-zone{overflow:hidden; width:960px; margin:0 auto; height:420px;} 
+
+#billboard{width:940px; height:400px; margin:10px 10px 20px 10px; overflow:hidden; background:url("{{ url_for('.static', filename='image/slide/billboard-bg.jpg')}}") no-repeat top center;}
+
+.slideshow{width:920px; height:360px; margin:10px; overflow:hidden;}
+
+.slideshow li{list-style:none; float:left; display:inline; position:relative;}
+
+.edge-holders{width:940px; height:400px; background:url("{{ url_for('.static', filename='image/slide/edge-holders.png')}}") no-repeat top center; position:relative; margin:10px; z-index:10; top:-420px;}
+
+</style>
+{% endblock %}
+
+{% block title %} jQuery {% endblock %}
+
+{% block main %}
+    <div id="top-zone">
+        <div id="billboard"><!--Container for slideshow elements-->
+        
+            <ul class="slideshow">
+                <li><img src="{{ url_for('.static', filename='image/slide/slide-one.jpg') }}" alt="Baffling, isn't it?"/></li>
+                <li><img src="{{ url_for('.static', filename='image/slide/slide-two.jpg') }}" alt="What's the metric system?"/></li>
+            </ul>
+
+        </div>
+        
+        <div class="edge-holders"><!--Overlay onto slideshow--></div>
+    </div><!--End of Top Zone-->
+{% endblock %}
