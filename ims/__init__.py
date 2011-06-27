@@ -24,6 +24,10 @@ def test():
     form = TestForm()
     return render_template("test.html", form = form)
 
+@app.route("/jquery")
+def jquery():
+    return render_template("jquery.html")
+
 @app.route("/ajax")
 def test_json():
     return jsonify(success=True)
