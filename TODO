@@ -4,18 +4,19 @@
  * upload support -- done
  * chinese support : http://packages.python.org/Flask-Babel/ 
     * maybe not need this, just use chinese in code
- * menu 
+ * menu
  * pagenation
  * test : http://packages.python.org/Flask-Testing/
- * ajax menu with jQuery
+ * menu with jQuery: ajax
  * table relatetionship
  * image support -- PIL
+ * css baseline
  * search : Lucene solr
  * database admin(CRUD)
  * todo assignment
  * markdown: make it can display information from text.like a wiki : splinx
  * mashups
- * RSS feeds
+ * RSS feeds, jsontify
  * flask-slik
 
  other: Scrapy BeautifulSoup Xapian mechanize

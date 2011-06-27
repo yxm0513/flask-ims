@@ -2,7 +2,7 @@ import os, sys
 import setting
 from functools import wraps
 
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 from flaskext.debugtoolbar import DebugToolbarExtension
 
 ###################### App Start #######################
@@ -23,6 +23,10 @@ from forms import TestForm
 def test():
     form = TestForm()
     return render_template("test.html", form = form)
+
+@app.route("/ajax")
+def test_json():
+    return jsonify(success=True)
 
 @app.route("/favicon.ico")
 def favicon():

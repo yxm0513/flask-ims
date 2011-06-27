@@ -1,10 +1,10 @@
-from flaskext.testing import TestCase
-
-class MyTest(TestCase):
-        pass
-
 from flaskext.testing import TestCase, Twill
 
+class MyTest(TestCase):
+
+    def runTest():
+        assert("1 == 1")
+'''
 from todos import create_app
 
 class TestViews(TestCase, Twill):
@@ -27,3 +27,5 @@ class TestViews(TestCase, Twill):
         self.twill.browser.go(self.twill.url("/foo/"))
         self.twill.browser.showforms()
         self.twill.browser.submit(1)
+'''
+mytest = MyTest()

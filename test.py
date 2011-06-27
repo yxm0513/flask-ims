@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
-from ims import tests
+import unittest
+from ims.tests import suite
 
 if __name__ == "__main__":
-    tests.run()
+    unittest.main(defaultTest='suite')
