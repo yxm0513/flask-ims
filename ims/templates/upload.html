@@ -1,6 +1,7 @@
-<!doctype html>
-<title> Flask IMS</title>
-<body>
+{% extends "layout.html" %}
+{% block title %} Upload {% endblock %}
+
+{% block main %}
     {% if msg %}
     Note:  {{msg}}
     {% endif %}
@@ -9,4 +10,4 @@
     description: <input type='text' name='description'> </br>
     <input type='submit' value='Upload'>
     </form>
-</body>
+{% endblock %}

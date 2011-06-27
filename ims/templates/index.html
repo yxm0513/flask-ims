@@ -1,9 +1,9 @@
 {% extends "layout.html" %}
-{% block title %} Front Page {% endblock %}
+{% block title %} Home {% endblock %}
 {% block main%}
 <h2> Welcome to ims -- inventory management system</h2>
 <p>
-    A IMS build with Flask, SQLite3. 
+    A IMS build with technolegies Flask, SQLite3, jQuery. 
 </p>
 <p>
     Currently, it have :
@@ -11,6 +11,7 @@
         <li><a href="{{ url_for('admin.index') }}" > Admin </a>
         <li><a href="{{ url_for('todo.index') }}" > Todo </a>
         <li><a href="{{ url_for('photo.index') }}" > Photo </a>
+        <li><a href="{{ url_for('jquery') }}" > jQuery </a>
     </ul>
 </p>
 {% endblock %}
