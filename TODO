@@ -2,21 +2,24 @@
  * form validation -- done
  * add/remove/update user -- done
  * upload support -- done
+ * mashups : from simple cd : scrapy
+ * RSS feeds, jsontify 
+	: werkzeug.contrib.atom import AtomFeed
+	: from xml.etree import ElementTree
  * chinese support : http://packages.python.org/Flask-Babel/ 
     * maybe not need this, just use chinese in code
- * menu
- * pagenation
+ * menu :
+ * pagenation :
  * test : http://packages.python.org/Flask-Testing/
  * menu with jQuery: ajax
  * table relatetionship
  * image support -- PIL
- * css baseline
+ * get css baseline 
  * search : Lucene solr
  * database admin(CRUD)
  * todo assignment
  * markdown: make it can display information from text.like a wiki : splinx
- * mashups
- * RSS feeds, jsontify
+ * vedio support : html5 or flash
  * flask-slik
 
  other: Scrapy BeautifulSoup Xapian mechanize

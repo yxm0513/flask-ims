@@ -3,7 +3,6 @@ from flask import Module, render_template, redirect, request, \
 from flaskext.login import  LoginManager, login_user, logout_user,\
         login_required, logout_user, UserMixin, AnonymousUser,\
         confirm_login, fresh_login_required, current_user
-from werkzeug import check_password_hash, generate_password_hash
 from ims.models import db, User
 from ims.forms import LoginForm, RegisterForm
 
@@ -55,11 +54,11 @@ def login():
         remember = 1
         user = User.query.filter_by(username = username).first()
         if not len(form.errors):
-            if user and check_password_hash(user.password, password):
+            if user and user.check_password(password):
                 loginuser = LoginUser(user.id, user.username)
                 if login_user(loginuser, remember=remember):
                     flash("Logged in successfully!")
-                    return redirect(request.args.get("next") or url_for("general.index"))
+                    return redirect(url_for("general.index", next='/'))
                 else:
                     flash("Sorry, but you could not log in.", 'error')
             else:
@@ -88,8 +87,8 @@ def register():
         if User.query.filter_by(username = username).first():
             flash('The username is already taken')
         else:
-            hash_pass = generate_password_hash(password, method='sha1', salt_length=8)
-            user = User(username, hash_pass, email)
+            user = User(username, None, email)
+            user.set_password(hash_pass)
             try:
                 user.store_to_db()
                 return render_template('registerok.html')

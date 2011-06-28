@@ -14,7 +14,7 @@ configure_uploads(app, (photos))
 
 @mod.route('/')
 def index():
-    return render_template('photo/index.html')
+    return render_template('photo/index.html', photo = Photo.query.all())
 
 
 @mod.route('/upload', methods=['GET', 'POST'])
@@ -31,10 +31,22 @@ def upload():
         return redirect(url_for('show', id=rec.id))
     return render_template('photo/upload.html', form = form)
 
-@mod.route('/<id>')
+@mod.route('/<int:id>')
 def show(id):
     photo = Photo.get(id)
     if photo is None:
         abort(404)
     url = photos.url(photo.filename)
     return render_template('photo/show.html', url=url, photo=photo)
+
+
+@mod.route('/del/<int:id>')
+def delete(id):
+    photo = Photo.get(id)
+    if photo is None:
+        abort(404)
+    url = photos.url(photo.filename)
+    # try to delete the record and remove it from directory
+    return redirect(url_for('index'))
+    
+

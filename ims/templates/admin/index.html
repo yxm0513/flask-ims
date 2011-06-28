@@ -9,8 +9,10 @@
             <li><a href="{{ url_for('admin.dropdb')}}">Drop database</a></br>
         </ul>
     <li> User
+        <ul>
         {% include "admin/add_user.html" %}
         {% include "admin/del_user.html" %}
+        </ul>
     <li> Todo
   </ul>
 {% endblock %}

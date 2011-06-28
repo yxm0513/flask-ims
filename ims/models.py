@@ -1,5 +1,6 @@
 from datetime import datetime
 from flaskext.sqlalchemy import SQLAlchemy
+from werkzeug import generate_password_hash, check_password_hash
 
 from ims import app
 
@@ -10,6 +11,8 @@ class User(db.Model):
     username = db.Column(db.String(80), unique=True, )
     password = db.Column(db.String(80))
     email = db.Column(db.String(120))
+    is_admin = db.Column(db.Boolean())
+    is_active = db.Column(db.Boolean())
 
     def __init__(self, username, password, email):
         self.username = username
@@ -26,6 +29,12 @@ class User(db.Model):
     def delete_from_db(self):
         db.session.remove(self)
         db.session.commit()
+     
+    def set_password(self, password):
+        self.password = generate_password_hash(password)
+     
+    def check_password(self, password):
+        return check_password_hash(self.password, password)  
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)

@@ -98,3 +98,8 @@ def index():
         return render_template('admin/index.html', add_form = add_form, remove_form = remove_form)
     else:
         return render_template('admin/index.html', add_form = add_form, remove_form = remove_form)
+
+
+
+def user_list():
+    pass
