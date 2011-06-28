@@ -2,4 +2,10 @@
 {% block title %} Photo {% endblock %}
 {% block main%}
   <h2>All Photo</h2>
+   <a href="{{url_for('photo.upload')}}">Upload</a>
+   <div class="imagewindow">
+    {%for image in photo %}
+        <img src="{{image.url}}" alt="{{image.filename}}" />
+    {%endfor%}
+   </div>
 {% endblock %}

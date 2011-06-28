@@ -56,7 +56,7 @@ class Todo(db.Model):
         self.pub_date = datetime.utcnow()
 
     def __repr__(self):
-        return '<User %r>' % self.title
+        return '<Todo %r>' % self.title
 
     def store_to_db(self):
         db.session.add(self)
@@ -66,7 +66,7 @@ class Todo(db.Model):
         db.session.remove(self)
         db.session.commit()
 
-
+from ims.forms import photos
 class Photo(db.Model):
     id = db.Column('todo_id', db.Integer, primary_key=True)
     filename = db.Column(db.String(60))
@@ -77,7 +77,7 @@ class Photo(db.Model):
         self.user = user
 
     def __repr__(self):
-        return '<User %r>' % self.filename
+        return '<Photo %r>' % self.filename
 
     def store_to_db(self):
         db.session.add(self)
@@ -86,7 +86,11 @@ class Photo(db.Model):
     def delete_from_db(self):
         db.session.remove(self)
         db.session.commit()
-         
+
+    @property
+    def url(self):
+        return(photos.url(self.filename))
+
     @classmethod
     def get(cls, id):
         return cls.query.filter_by(user = id).first()

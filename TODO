@@ -19,6 +19,8 @@
  * database admin(CRUD)
  * todo assignment
  * markdown: make it can display information from text.like a wiki : splinx
+    : https://github.com/dcolish/flask-markdown
+    : http://code.google.com/p/python-creole/
  * vedio support : html5 or flash
  * flask-slik
 

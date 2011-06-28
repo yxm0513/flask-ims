@@ -18,6 +18,7 @@ def index():
 
 
 @mod.route('/upload', methods=['GET', 'POST'])
+@login_required
 def upload():
     form = UploadForm(request.form)
     if not form.validate_on_submit():
@@ -33,11 +34,12 @@ def upload():
 
 @mod.route('/<int:id>')
 def show(id):
-    photo = Photo.get(id)
+    photo = Photo.query.filter_by(id=id).first() 
     if photo is None:
         abort(404)
-    url = photos.url(photo.filename)
-    return render_template('photo/show.html', url=url, photo=photo)
+    import pdb
+    pdb.set_trace()
+    return render_template('photo/show.html', photo=photo)
 
 
 @mod.route('/del/<int:id>')
@@ -49,4 +51,3 @@ def delete(id):
     # try to delete the record and remove it from directory
     return redirect(url_for('index'))
     
-
