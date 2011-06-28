@@ -47,9 +47,11 @@ from view import admin
 from view import general
 from view import todo
 from view import photo
+from view import wiki 
 
 app.register_module(login.mod)
 app.register_module(admin.mod)
 app.register_module(general.mod)
 app.register_module(todo.mod, url_prefix='/todo')
 app.register_module(photo.mod, url_prefix='/photo')
+app.register_module(wiki.mod, url_prefix='/wiki')

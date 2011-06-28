@@ -94,3 +94,26 @@ class Photo(db.Model):
     @classmethod
     def get(cls, id):
         return cls.query.filter_by(user = id).first()
+
+
+class Wiki(db.Model):
+    id = db.Column('todo_id', db.Integer, primary_key=True)
+    title = db.Column(db.String)
+    text = db.Column(db.String)
+    pub_date = db.Column(db.DateTime)
+
+    def __init__(self, title, text):
+        self.title = title
+        self.text = text
+        self.pub_date = datetime.utcnow()
+
+    def __repr__(self):
+        return '<Wiki %r>' % self.title
+
+    def store_to_db(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def delete_from_db(self):
+        db.session.remove(self)
+        db.session.commit()

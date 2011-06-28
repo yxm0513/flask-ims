@@ -38,3 +38,7 @@ class UploadForm(Form):
     photo = FileField("Upload your image", validators=[file_required(),
         file_allowed(photos, "Images only!")])
     submit = SubmitField("Submit")
+
+class WikiForm(Form):
+    text = TextField("Raw Text", validators=[Required()])
+    submit = SubmitField("Save")

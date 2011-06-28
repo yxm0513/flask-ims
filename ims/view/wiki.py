@@ -1,22 +1,25 @@
 from flask import Module, render_template
+from flaskext.login import login_required
+from flaskext.markdown import Markdown
 
 mod = Module(__name__)
 
+from ims import app
+Markdown(app)
+
 # URL
-@mod.route('/wiki/<name>', methods= ['GET'])
-def show(name):
-    if not name:
-        name = 'MainPage'
-    
+@mod.route('/')
+@mod.route('/<name>', methods= ['GET'])
+def show(name='MainPage'):
     # get it from database
     
     
     # render to template
-    return render_template("wiki/show.html", page = page, mod = "")
+    return render_template("wiki/show.html", name=name)
 
 
-@mod.route('/wiki/edit_<name>', methods= ['GET', 'POST'])
-''' user must be logged in to edit '''
+@mod.route('/edit_<name>', methods= ['GET', 'POST'])
+# user must be logged in to edit
 @login_required
 def edit(name):
     if not name:

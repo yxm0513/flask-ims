@@ -2,6 +2,11 @@
  * form validation -- done
  * add/remove/update user -- done
  * upload support -- done
+ * markdown: make it can display information from text.like a wiki : splinx
+    : https://github.com/dcolish/flask-markdown
+    : http://code.google.com/p/python-creole/
+    * finally, flaskext.markdown used -- done
+    * if need intergrated with SVN
  * mashups : from simple cd : scrapy
  * RSS feeds, jsontify 
 	: werkzeug.contrib.atom import AtomFeed
@@ -18,9 +23,6 @@
  * search : Lucene solr
  * database admin(CRUD)
  * todo assignment
- * markdown: make it can display information from text.like a wiki : splinx
-    : https://github.com/dcolish/flask-markdown
-    : http://code.google.com/p/python-creole/
  * vedio support : html5 or flash
  * flask-slik
 
