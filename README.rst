@@ -27,9 +27,14 @@ ims -- inventoy management system
   * Management 
   * Deplyment
 
-基础
+依赖
 ~~~~~~~~
 
+  * Python
+  * SQLite3
+  * SQLAlchmey
+  * python-wtforms
+  * python-markdown
 
 部署
 ~~~~~~~~

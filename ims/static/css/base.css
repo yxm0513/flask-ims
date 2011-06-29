@@ -68,3 +68,10 @@ body{
 	margin: 0 auto;
 	text-align: center;
 }
+
+
+#wikitext {
+	height:500px;
+	text-indent:-9999px;
+	width:960px;
+}

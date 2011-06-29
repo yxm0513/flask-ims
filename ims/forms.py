@@ -1,5 +1,5 @@
 from flaskext.wtf import Form, TextField, PasswordField, BooleanField,\
-         SubmitField, Required, validators
+         SubmitField, Required, validators, TextAreaField
 from flaskext.wtf.file import FileField, file_required, file_allowed
 from flaskext.uploads import UploadSet, IMAGES
 
@@ -33,12 +33,21 @@ class RemoveUserForm(Form):
     username = TextField("Username", validators=[Required()])
     submit = SubmitField("Remove")
 
+
+class TodoForm(Form):
+    pass
+
 photos = UploadSet('photos', IMAGES)
 class UploadForm(Form):
     photo = FileField("Upload your image", validators=[file_required(),
         file_allowed(photos, "Images only!")])
     submit = SubmitField("Submit")
 
-class WikiForm(Form):
-    text = TextField("Raw Text", validators=[Required()])
-    submit = SubmitField("Save")
+class WikiEditForm(Form):
+    submit = SubmitField("Submit Changes")
+    preview = SubmitField("Preview")
+    cancel = SubmitField("Cancel")
+
+class WikiShowForm(Form):
+    edit = SubmitField("Edit this page")
+    attach = SubmitField("Attach files")
