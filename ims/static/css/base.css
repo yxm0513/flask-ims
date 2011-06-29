@@ -72,6 +72,8 @@ body{
 
 #wikitext {
 	height:500px;
-	text-indent:-9999px;
 	width:960px;
+	position: static;
+	left: -9999px; 
+	top: -9999px;
 }

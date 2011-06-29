@@ -3,9 +3,7 @@
 {% block main%}
   <form action="{{url_for('wiki.show')}}" method=post>
     <div>
-    <textarea id="wikitext">
-    {{page}}
-    </textarea>
+    <textarea id="wikitext" rows="40" cols="80">{{page}}</textarea>
     </div>
     <div>
     {{ form.submit }} {{ form.preview }}  {{ form.cancel }}
