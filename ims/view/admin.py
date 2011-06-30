@@ -8,7 +8,7 @@ from werkzeug import generate_password_hash
 
 mod = Module(__name__, url_prefix='/admin')
 
-from ims.models import db, User, Todo
+from ims.models import db, User, Todo, Wiki
 from ims.forms import AddUserForm, RemoveUserForm
 
 # database
@@ -42,6 +42,15 @@ def initdb():
     except:
         flash("create Todo table failed.", 'error')
     
+    try:
+        wiki1 = Wiki('MainPage', 'wikitest')
+        wiki2 = Wiki('Sandbox', 'wikitest')
+        wiki1.store_to_db()
+        flash("wiki #1 added", 'message')
+        wiki2.store_to_db()
+        flash("wiki #2 added", 'message')
+    except:
+        flash("create Wiki table failed.", 'error')
     return redirect(url_for('index'))
 
 @mod.route('/dropdb')

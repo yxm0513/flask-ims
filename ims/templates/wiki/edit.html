@@ -2,13 +2,18 @@
 {% block title %} Editing {{name}} {% endblock %}
 {% block main%}
   <h1><a href="{{url_for('wiki.wiki')}}{{name}}">{{name}}</a> </h1>
-  <form action="{{url_for('wiki.wiki')}}" method=post>
+  <form action="{{url_for('wiki.wiki')}}{{name}}" method=post>
     <div>
         {{ form.wikitext(rows=50,cols=100) }}
     </div>
     <div>
-    {{ form.submit }} {{ form.preview }}  {{ form.cancel }}
+    {{form.action(value="save")}} 
+    <input type=submit value="Save">
     </div>
   </form>
+    {{form.action(value="preview")}} 
+    <input type=submit value="Preview">
+    {{form.action(value="cancel")}} 
+    <input type=submit value="Cancel">
 
 {% endblock %}

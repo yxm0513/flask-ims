@@ -2,20 +2,13 @@
 {% block title %} {{name}} {% endblock %}
 {% block main%}
   <h1><a href="{{url_for('wiki.wiki')}}{{name}}">{{name}}</a> </h1>
-{% filter markdown %}
-Your Markdown
-=============
-title
--------------
-* list1
-* list2
-{% endfilter %}
+{% filter markdown %} {{wiki.text}} {% endfilter %}
 <form action="{{url_for('wiki.wiki')}}{{name}}" method=get>
 {{form.action(value="edit")}} 
 <input type=submit value="Edit this page">
 </form>
-<form action="{{url_for('wiki.wiki')}}" method=post>
-{{form.action(value="edit")}} 
-<input type=submit value="Edit this page">
+<form action="{{url_for('wiki.wiki')}}{{name}}" method=get>
+{{form.action(value="attach")}} 
+<input type=submit value="Attach">
 </form>
 {% endblock %}

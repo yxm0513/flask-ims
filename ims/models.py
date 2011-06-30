@@ -68,7 +68,7 @@ class Todo(db.Model):
 
 from ims.forms import photos
 class Photo(db.Model):
-    id = db.Column('todo_id', db.Integer, primary_key=True)
+    id = db.Column('id', db.Integer, primary_key=True)
     filename = db.Column(db.String(60))
     user = db.Column(db.Integer)
     
@@ -97,15 +97,17 @@ class Photo(db.Model):
 
 
 class Wiki(db.Model):
-    id = db.Column('todo_id', db.Integer, primary_key=True)
+    id = db.Column('id', db.Integer, primary_key=True)
     title = db.Column(db.String)
     text = db.Column(db.String)
     pub_date = db.Column(db.DateTime)
+    update_date = db.Column(db.DateTime)
 
     def __init__(self, title, text):
         self.title = title
         self.text = text
         self.pub_date = datetime.utcnow()
+        self.update_date = datetime.utcnow()
 
     def __repr__(self):
         return '<Wiki %r>' % self.title
@@ -116,4 +118,8 @@ class Wiki(db.Model):
 
     def delete_from_db(self):
         db.session.remove(self)
+        db.session.commit()
+
+    def update_to_db(self):
+        db.session.update(self)
         db.session.commit()

@@ -44,10 +44,12 @@ class UploadForm(Form):
     submit = SubmitField("Submit")
 
 class WikiEditForm(Form):
-    wikitext = TextAreaField("Raw Text", default="Please input here")
-    submit = SubmitField("Submit Changes")
-    preview = SubmitField("Preview")
-    cancel = SubmitField("Cancel")
+    wikitext = TextAreaField("Raw Text")
+    action = HiddenField("action")
+
+    @classmethod
+    def set_default_text(cls, text=None):
+        cls.wikitext = TextAreaField("Raw Text", default=text)
 
 class WikiShowForm(Form):
     action = HiddenField("action")

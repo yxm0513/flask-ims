@@ -58,7 +58,7 @@ def login():
                 loginuser = LoginUser(user.id, user.username)
                 if login_user(loginuser, remember=remember):
                     flash("Logged in successfully!")
-                    return redirect(url_for("general.index", next='/'))
+                    return redirect(request.args.get('next') or url_for("general.index"))
                 else:
                     flash("Sorry, but you could not log in.", 'error')
             else:

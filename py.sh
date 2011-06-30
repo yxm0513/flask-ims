@@ -1,3 +1,7 @@
+#!/bin/bash
+# 1. find all pyc files and remove them
+# 2. convert all .py .html files with tab to 4 space 
+
 find . -name "*.pyc" -exec rm -rf {} \;
 types=(.py .html)
 for t in ${types[@]}
