@@ -22,13 +22,12 @@ def wiki(name='MainPage'):
         form = WikiEditForm()
         if not name:
             flash("Creat a new page")
-        return render_template("wiki/edit.html", form=form, name = name, mod = "")
+        return render_template("wiki/edit.html", form=form, name = name)
     elif action == 'attach':
-        return render_template("wiki/attach.html", form=form, name = name, mod = "")
+        return render_template("wiki/attach.html", form=form, name = name)
     else:
         form = WikiShowForm()
         # get it from database
-    
     
            # render to template
         return render_template("wiki/show.html", name=name, form=form)

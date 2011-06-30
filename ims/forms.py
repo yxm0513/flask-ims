@@ -1,5 +1,5 @@
 from flaskext.wtf import Form, TextField, PasswordField, BooleanField,\
-         SubmitField, Required, validators, TextAreaField
+         SubmitField, Required, validators, TextAreaField, HiddenField
 from flaskext.wtf.file import FileField, file_required, file_allowed
 from flaskext.uploads import UploadSet, IMAGES
 
@@ -50,5 +50,4 @@ class WikiEditForm(Form):
     cancel = SubmitField("Cancel")
 
 class WikiShowForm(Form):
-    edit = SubmitField("Edit this page")
-    attach = SubmitField("Attach files")
+    action = HiddenField("action")

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block title %} {{name}} {% endblock %}
 {% block main%}
-  <h1><a herf="{{url_for('wiki.wiki')}}/{{name}}"> {{name}}</a> </h1>
+  <h1><a href="{{url_for('wiki.wiki')}}{{name}}">{{name}}</a> </h1>
 {% filter markdown %}
 Your Markdown
 =============
@@ -10,10 +10,12 @@ title
 * list1
 * list2
 {% endfilter %}
-<form action="{{url_for('wiki.wiki')}}" method=post>
-{{form.edit}} 
+<form action="{{url_for('wiki.wiki')}}{{name}}" method=get>
+{{form.action(value="edit")}} 
+<input type=submit value="Edit this page">
 </form>
 <form action="{{url_for('wiki.wiki')}}" method=post>
-{{form.attach}}
+{{form.action(value="edit")}} 
+<input type=submit value="Edit this page">
 </form>
 {% endblock %}

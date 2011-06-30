@@ -5,7 +5,7 @@ mod = Module(__name__)
 # URL
 @mod.route('/settings')
 def settings():
-    return render_template("test.html")
+    return render_template("settings.html")
 
 @mod.route('/help')
 def help():
