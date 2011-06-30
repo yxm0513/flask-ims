@@ -1,4 +1,4 @@
-from flask import Module, render_template
+from flask import Module, render_template, request
 from flaskext.login import login_required
 from flaskext.markdown import Markdown
 from ims.forms import WikiShowForm, WikiEditForm
@@ -12,29 +12,23 @@ Markdown(app)
 # URL
 @mod.route('/')
 @mod.route('/<name>', methods= ['GET'])
-def show(name='MainPage'):
-    form = WikiShowForm()
-    # get it from database
+def wiki(name='MainPage'):
+    try:
+        action = request.args.get('action')
+    except NameError:
+        action = 'show' 
+
+    if action == 'edit':
+        form = WikiEditForm()
+        if not name:
+            flash("Creat a new page")
+        return render_template("wiki/edit.html", form=form, name = name, mod = "")
+    elif action == 'attach':
+        return render_template("wiki/attach.html", form=form, name = name, mod = "")
+    else:
+        form = WikiShowForm()
+        # get it from database
     
     
-    # render to template
-    return render_template("wiki/show.html", name=name, form=form)
-
-
-@mod.route('/edit/<name>', methods= ['GET', 'POST'])
-# user must be logged in to edit
-@login_required
-def edit(name):
-    form = WikiEditForm()
-    if not name:
-        flash()
-    return render_template("wiki/edit.html", form=form, name = name, mod = "")
-
-
-@mod.route('/attach', methods= ['GET', 'POST'])
-# user must be logged in to edit
-@login_required
-def attach():
-    return render_template("wiki/attach.html", form=form, name = name, mod = "")
-
-
+           # render to template
+        return render_template("wiki/show.html", name=name, form=form)

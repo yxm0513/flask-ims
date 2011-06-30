@@ -35,6 +35,7 @@ ims -- inventoy management system
   * SQLAlchmey
   * python-wtforms
   * python-markdown
+  * python-profile: pstats
 
 部署
 ~~~~~~~~

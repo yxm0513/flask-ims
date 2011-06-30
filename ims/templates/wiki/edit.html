@@ -1,9 +1,10 @@
 {% extends "layout.html" %}
 {% block title %} Editing {{name}} {% endblock %}
 {% block main%}
-  <form action="{{url_for('wiki.show')}}" method=post>
+  <h1><a herf="{{url_for('wiki.wiki')}}/{{name}}"> {{name}}</a> </h1>
+  <form action="{{url_for('wiki.wiki')}}" method=post>
     <div>
-    <textarea id="wikitext" rows="40" cols="80">{{page}}</textarea>
+        {{ form.wikitext(rows=50,cols=100) }}
     </div>
     <div>
     {{ form.submit }} {{ form.preview }}  {{ form.cancel }}
