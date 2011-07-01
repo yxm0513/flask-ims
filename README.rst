@@ -40,3 +40,9 @@ ims -- inventoy management system
 部署
 ~~~~~~~~
 
+  * Sanity Check run.py
+
+    * download source code
+    * install all above requirements
+    * do setup in settings, like project directory
+    * run #python run.py
