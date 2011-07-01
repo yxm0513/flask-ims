@@ -1,6 +1,7 @@
+import os
 # configuration
 
-PROJ = r'/home/xinming/flask-ims'
+PROJ = os.getcwd() 
 UPLOAD_FOLDER = PROJ + r'uploads'
 DEBUG = True
 SECRET_KEY = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
