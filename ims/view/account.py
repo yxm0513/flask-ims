@@ -23,7 +23,7 @@ class Anonymous(AnonymousUser):
 login_manager = LoginManager()
 
 login_manager.anonymous_user = Anonymous
-login_manager.login_view = "login"
+login_manager.login_view = "account"
 login_manager.login_message = u"Please log in to access this page."
 login_manager.refresh_view = "reauth"
 
@@ -39,7 +39,7 @@ def load_user(id):
 
 @login_manager.unauthorized_handler
 def unauthorized():
-    return render_template("unauthorized.html")
+    return render_template("account/unauthorized.html")
 
 
 # URL
@@ -63,7 +63,7 @@ def login():
                     flash("Sorry, but you could not log in.", 'error')
             else:
                 flash("Incorrect username or password", 'error')
-    return render_template("login.html", form = form)
+    return render_template("account/login.html", form = form)
 
 @mod.route("/logout")
 @login_required
@@ -91,9 +91,9 @@ def register():
             user.set_password(hash_pass)
             try:
                 user.store_to_db()
-                return render_template('registerok.html')
+                return render_template('account/registerok.html')
             except:
                 flash('You were register failed, pls contact %s for help.' % app.config['ADMIN'][1])
     else:
-        return render_template('register.html', form = form)
-    return render_template('register.html', form = form)
+        return render_template('account/register.html', form = form)
+    return render_template('account/register.html', form = form)

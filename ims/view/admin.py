@@ -26,9 +26,9 @@ def initdb():
         guest = User('guest', guest_pass, 'guest@example.com')
         # save them into database
         admin.store_to_db()
-        flash("user admin added", 'message')
+        flash("user admin added")
         guest.store_to_db()
-        flash("user guest added", 'message')
+        flash("user guest added")
     except:
         flash("create User table failed.", 'error')
     
@@ -36,9 +36,9 @@ def initdb():
         todo1 = Todo('check in code', 'modify reset')
         todo2 = Todo('talk with somebody', 'about cloud')
         todo1.store_to_db()
-        flash("todo #1 added", 'message')
+        flash("todo #1 added")
         todo2.store_to_db()
-        flash("todo #2 added", 'message')
+        flash("todo #2 added")
     except:
         flash("create Todo table failed.", 'error')
     
@@ -46,9 +46,9 @@ def initdb():
         wiki1 = Wiki('MainPage', 'wikitest')
         wiki2 = Wiki('Sandbox', 'wikitest')
         wiki1.store_to_db()
-        flash("wiki #1 added", 'message')
+        flash("wiki #1 added")
         wiki2.store_to_db()
-        flash("wiki #2 added", 'message')
+        flash("wiki #2 added")
     except:
         flash("create Wiki table failed.", 'error')
     return redirect(url_for('index'))

@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block title %} Home {% endblock %}
+{% block main%}
+<h2> Welcome to ims -- inventory management system</h2>
+<p>
+    A IMS build with technolegies Flask, SQLite3, jQuery. 
+</p>
+<p>
+    Currently, it have :
+    <ul> 
+        <li><a href="{{ url_for('admin.index') }}" > Admin </a></li>
+        <li><a href="{{ url_for('todo.index') }}" > Todo </a></li>
+        <li><a href="{{ url_for('photo.index') }}" > Photo </a></li>
+        <li><a href="{{ url_for('wiki.wiki') }}" > Wiki </a></li>
+        <li> Test: <a href="{{ url_for('test.jquery1') }}" > jQuery1 </a> 
+    | <a href="{{ url_for('test.jquery2') }}" > jQuery2 </a>
+    | <a href="{{ url_for('test.json') }}" > json </a>
+    | <a href="{{ url_for('test.test') }}" > test </a>
+    </li>
+    </ul>
+</p>
+{% endblock %}
+<body>

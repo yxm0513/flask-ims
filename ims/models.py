@@ -6,9 +6,16 @@ from ims import app
 
 db = SQLAlchemy(app)
 
+class Nav(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(), unique=True)
+    url = db.Column(db.String())
+    is_main = db.Column(db.Boolean)
+    is_meta = db.Column(db.Boolean)
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True, )
+    username = db.Column(db.String(80), unique=True)
     password = db.Column(db.String(80))
     email = db.Column(db.String(120))
     is_admin = db.Column(db.Boolean())
@@ -41,8 +48,6 @@ class Post(db.Model):
 
 
 class Todo(db.Model):
-    __tablename__ = 'todo'
-    
     id = db.Column('todo_id', db.Integer, primary_key=True)
     title = db.Column(db.String(60))
     text = db.Column(db.String)

@@ -1,12 +1,10 @@
-<div class="nav">
-        <div class="metanav">
-        {% if current_user.is_authenticated() %}
-            Welcome, {{ current_user.name }} | <a href="{{ url_for('login.logout') }}">log out</a> 
-            | <a href="{{ url_for('general.settings') }}">settings</a>
-        {% else %}
-            <a href="{{ url_for('login.login') }}">log in</a> 
-            | <a href="{{ url_for('login.register') }}">register</a> 
-        {% endif %}
-        | <a href="{{ url_for('general.help') }}">help</a>
-        </div>
+<div id="nav">
+<ul>
+    <li><a href="{{url_for('general.index')}}">Home</a></li>
+    <li><a href="{{url_for('wiki.wiki')}}">Wiki</a></li>
+    <li><a href="{{ url_for('todo.index') }}"> Todo </a></li>
+    <li><a href="{{ url_for('photo.index') }}"> Photo </a></li>
+    <li><a href="{{ url_for('admin.index') }}"> Admin </a></li>
+    <li><a href="{{url_for('general.help')}}">About</a></li>
+</ul>
 </div>
