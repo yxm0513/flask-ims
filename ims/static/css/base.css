@@ -106,12 +106,31 @@ a {
     clear:right;
 }
 
+#tool {
+    height: 20px;
+    font-size: 10px;
+    text-align: center;
+    width:960px;
+    position: absolute;
+    bottom: 36px;
+}
+
+#tool ul {
+    margin: 0;
+    padding: 0;
+}
+
+#tool ul li {
+    display: inline;
+    list-style-type: none;
+}
+
 #footer {
     border-top: 1px solid #B5331A;
     height: 35px;
     width:960px;
     position: absolute;
-    bottom: 0;
+    bottom: 0px;
 }
 
 #footer p {

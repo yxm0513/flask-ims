@@ -27,7 +27,7 @@
  * database admin(CRUD)
  * search : Lucene solr
  * vedio support : html5 or flash
- * flask-slik
+ * flask-silk : http://github.com/sublee/flask-silk
 
  other: Scrapy BeautifulSoup Xapian mechanize
 项目实现的主要功能：

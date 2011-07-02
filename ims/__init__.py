@@ -4,6 +4,7 @@ from functools import wraps
 
 from flask import Flask, render_template
 from flaskext.debugtoolbar import DebugToolbarExtension
+from flaskext.silk import Silk
 
 ###################### App Start #######################
 app = Flask(__name__)
@@ -13,6 +14,9 @@ app.config.from_object(setting)
 
 # debug tool
 toolbar = DebugToolbarExtension(app)
+
+# slik
+silk = Silk(app)
 
 # add modules
 from view import test 
