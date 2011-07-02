@@ -59,11 +59,10 @@ def dropdb():
     flash("drop database ok")
     return redirect(url_for('index'))
 
-@mod.route('/add_user', methods = ['POST'])
+@mod.route('/adduser', methods = ['GET', 'POST'])
 @login_required
-def add_user():
+def adduser():
     add_form = AddUserForm(request.form)
-    remove_form = RemoveUserForm(request.form)
     if request.method == 'POST' and add_form.validate_on_submit():
         username = add_form.username.data
         password = add_form.password.data
@@ -77,13 +76,12 @@ def add_user():
             flash("add user %s done." % user.username)
         except:
             flash("add user failed %s" % user.username, 'error')
-    return render_template('admin/index.html', add_form = add_form, remove_form = remove_form)
+    return render_template('admin/adduser.html', add_form = add_form)
 
 
-@mod.route('/del_user', methods = ['POST'])
+@mod.route('/deluser', methods = ['GET', 'POST'])
 @login_required
-def del_user():
-    add_form = AddUserForm(request.form)
+def deluser():
     remove_form = RemoveUserForm(request.form)
     if request.method == 'POST' and remove_form.validate_on_submit():
         username = remove_form.username.data
@@ -96,19 +94,24 @@ def del_user():
                 flash("del user %s done." % user.username)
             except:
                 flash("del user failed %s" % user.username, 'error')
-    return render_template('admin/index.html', add_form = add_form, remove_form = remove_form)
+    return render_template('admin/deluser.html', remove_form = remove_form)
 
 @mod.route('/', methods = ['GET', 'POST'])
 def index():
-    add_form = AddUserForm(request.form)
-    remove_form = RemoveUserForm(request.form)
-    if request.method == 'POST':
-        flash('Config saved.')
-        return render_template('admin/index.html', add_form = add_form, remove_form = remove_form)
-    else:
-        return render_template('admin/index.html', add_form = add_form, remove_form = remove_form)
+    return render_template('admin/index.html')
 
+@mod.route('/listuser', methods = ['GET', 'POST'])
+def listuser():
+    return render_template('admin/listuser.html')
 
+@mod.route('/addtodo', methods = ['GET', 'POST'])
+def addtodo():
+    return render_template('admin/addtodo.html')
 
-def user_list():
-    pass
+@mod.route('/delodo', methods = ['GET', 'POST'])
+def deltodo():
+    return render_template('admin/deltodo.html')
+
+@mod.route('/listtodo', methods = ['GET', 'POST'])
+def listtodo():
+    return render_template('admin/listtodo.html')

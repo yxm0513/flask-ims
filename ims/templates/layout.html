@@ -24,20 +24,24 @@
         {% endwith %}
     </div>
 
+    <div id="header">
     {% block header %}
-        <div id="header">
         {% include "nav.html"%}
         {% include "logo.html"%}
         {% include "header-other.html"%}
-        </div>
     {% endblock %}
+    </div>
     
+    <div id="main">
     {% block main %}
 
     {% endblock %}
+    </div>
 
+    <div id="footer">
     {% block footer %}
         {% include "footer.html"%}
     {% endblock %}
+    </div>
 
 </body>

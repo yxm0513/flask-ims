@@ -1,4 +1,6 @@
-<li> Remove User
+{% extends "admin/base.html"%}
+{% block right %}
+<h3> Delete User </h3>
 <form action="del_user" method="post">
     <dl>
       <dd> {{ remove_form.username.label }} :
@@ -6,3 +8,4 @@
       <dd> {{ remove_form.submit }}
     </dl>
 </form>
+{% endblock %}

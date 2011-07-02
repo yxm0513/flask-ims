@@ -1,4 +1,6 @@
-<li> New User
+{% extends "admin/base.html" %}
+{% block right %}
+<h3> New User </h3>
 <form action="add_user" method="post">
     <dl>
       <dd> {{ add_form.username.label }} :
@@ -10,3 +12,4 @@
       <dd> {{ add_form.submit }}
     </dl>
 </form>
+{% endblock %}

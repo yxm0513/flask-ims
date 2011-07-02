@@ -8,7 +8,6 @@ body{
 	width: 960px;
 }
 
-
 .todo {
 }
 
@@ -16,21 +15,17 @@ body{
 	background-attachment:initial;
 	background-clip:initial;
 	background-color:initial;
-	background-image:url(http://www.catswhocode.com/blog/wp-content/themes/cat-stellation/images/bg.png);
 	background-origin:initial;
 	background-repeat:repeat no-repeat;
-	height:249px;
 }
 
 #logo {
 	background-attachment:initial;
 	background-clip:initial;
 	background-color:initial;
-	background-image:url(http://www.catswhocode.com/blog/wp-content/themes/cat-stellation/images/fisto-med.png);
 	background-origin:initial;
 	background-repeat:no-repeat no-repeat;
 	display:block;
-	height:249px;
 	text-indent:-9999px;
 	width:768px;
 }
@@ -59,21 +54,35 @@ body{
 	font-size:10px;
 }
 
-.footer {
-	height: 20px;
-	border-top: 1px solid #CEE5F5;
-	/*
-	background: #CEE5F5;
-	*/
-	margin: 0 auto;
-	text-align: center;
-}
-
-
 #wikitext {
 	height:500px;
 	width:960px;
 	position: static;
 	left: -9999px; 
 	top: -9999px;
+}
+
+#left{
+        width:166px;
+        margin-right:5px;
+        float:left;
+ 	text-align:left; 
+ 	clear:left; 
+ 	overflow:hidden; 
+        border-right:1px solid #c9d7f1;
+	clear:left;
+}
+
+#right{
+	clear:right;
+}
+
+
+#footer {
+	clear:both;
+	height: 20px;
+	border-top: 1px solid #CEE5F5;
+	margin: 0 auto;
+	text-align: center;
+	background: #CEE5F5;
 }
