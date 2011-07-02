@@ -22,11 +22,10 @@
  * menu : theme support? -- basic done
     * menu with jQuery: ajax
  * pagenation :
- * navigation table for nav links
- * More database table relatetionship
+ * navigation db table for nav links
+ * More database table relatetionship, Wiki and User, Todo and User .etc
  * database admin(CRUD)
  * search : Lucene solr
- * todo assignment
  * vedio support : html5 or flash
  * flask-slik
 

@@ -19,7 +19,7 @@ class Feed(AtomFeed):
 
 @mod.route("/")
 @mod.route("/wiki")
-def todo():
+def wiki():
     feed = Feed('Recent Wiki Pages',
                     feed_url=request.url, url=request.url_root)
                     
