@@ -12,7 +12,7 @@ class Feed(AtomFeed):
                  unicode(post.text),
                  content_type="html",
                  author=post.title,
-                 url=urljoin(request.url_root, post.title),
+                 url=urljoin(request.url_root, 'wiki/' + post.title),
                  updated=post.update_date,
                  published=post.pub_date)
 
