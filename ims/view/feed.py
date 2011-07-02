@@ -1,6 +1,7 @@
 from urlparse import urljoin
-from flask import Module, request, url_for
+from flask import Module, request, url_for, render_template
 from werkzeug.contrib.atom import AtomFeed
+from feedparser import parse
 
 from ims.models import Wiki, Todo
 
@@ -29,3 +30,9 @@ def wiki():
         feed.add_feed(t)
 
     return feed.get_response()
+
+
+@mod.route("/reader")
+def reader():
+    d = parse("https://github.com/yxm0513/flask-ims/commits/master.atom")
+    return render_template('feed/reader.html', d=d)

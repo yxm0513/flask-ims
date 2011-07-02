@@ -3,7 +3,7 @@
 # 2. convert all .py .html files with tab to 4 space 
 
 find . -name "*.pyc" -exec rm -rf {} \;
-types=(.py .html)
+types=(.py .html .css .js)
 for t in ${types[@]}
 do
     echo TYPE: ${t}

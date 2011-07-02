@@ -1,122 +1,133 @@
 body{
-	margin: 0 auto;
-	padding:0;
-	font-size:12px;
-	font-family:"Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
-	color:#333;
-	background:#fff;
-	width: 960px;
+    width:960px;
+    margin: 0 auto;
+    padding:0;
+    font-size:12px;
+    font-family:"Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
+    
 }
 
 a {
-	color: #389200;
-	text-decoration: none; 
+    color: #389200;
+    text-decoration: none; 
 }
 
 .todo {
 }
 
 #header {
-	background-attachment:initial;
-	background-clip:initial;
-	background-color:initial;
-	background-origin:initial;
-	background-repeat:repeat no-repeat;
 }
 
 #logo {
-	background-attachment:initial;
-	background-clip:initial;
-	background-color:initial;
-	background-origin:initial;
-	background-repeat:no-repeat no-repeat;
-	display:block;
-	text-indent:-9999px;
-	width:768px;
+    display:block;
+    width:768px;
 }
 
 #metanav {
-	list-style: none;
-	text-align: right;
-	font-size: 1em;
-	padding: 0.3px;
-	margin-bottom: 0.3px
+    list-style: none;
+    text-align: right;
+    font-size: 1em;
+    padding: 0.3px;
+    margin-bottom: 0.3px
 }
 
 #nav
 {
-	float: left;
-	width: 960px;
-	background: #ADD8E6;
+    float: left;
+    width: 960px;
+    background: #C2CFF1;
 }
 
 #nav ul
 {
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 #nav ul li
 {
-	list-style-type: none;
-	display: inline;
+    list-style-type: none;
+    display: inline;
 }
 
 #nav li a
 {
-	display: block;
-	float: left;
-	padding: 5px 10px;
-	text-decoration: none;
-	border-right: 1px solid #fff;
+    display: block;
+    float: left;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-right: 1px solid #fff;
 }
 
-#nav li a:hover { background: #A0BBC4; }
+#nav li a:hover { 
+    background: #A0BBC4;
+}
 
 #messages {
-	height: 40px;
+    height: 40px;
 }
 
 .message {
-	font-family: "Courier New", Arial;
-	background: #64CF4B;
-	font-size:10px;
+    font-family: "Courier New", Arial;
+    background: #64CF4B;
+    font-size:10px;
 }
 
 .error {
-	font-family: "Courier New", Arial;
-	background: #E51629;
-	font-size:10px;
+    font-family: "Courier New", Arial;
+    background: #E51629;
+    font-size:10px;
 }
 
+#main {
+    width:960px;
+}
 
 #wikitext {
-	height:500px;
-	width:960px;
-	position: static;
-	left: -9999px; 
-	top: -9999px;
+    height:500px;
+    width:960px;
+    position: static;
+    left: -9999px; 
+    top: -9999px;
 }
 
 #left{
-        width:166px;
-        margin-right:5px;
-        float:left;
- 	text-align:left; 
- 	clear:left; 
- 	overflow:hidden; 
-        border-right:1px solid #c9d7f1;
-	clear:left;
+    width:166px;
+    margin-right:5px;
+    float:left;
+    text-align:left; 
+    clear:left; 
+    overflow:hidden; 
+    border-right:1px solid #c9d7f1;
+    clear:left;
 }
 
 #right{
-	clear:right;
+    clear:right;
 }
 
 #footer {
-	clear:both;
-	height: 20px;
-	margin: 0 auto;
-	text-align: center;
-	background: #ADD8E6;
+    border-top: 1px solid #B5331A;
+    height: 35px;
+    width:960px;
+    position: absolute;
+    bottom: 0;
+}
+
+#footer p {
+    font-size: 0.85em;
+    line-height: 15px;
+    margin: 10px 20px;
+}
+
+#badge {
+    float: right;
+}
+
+#footer p a {
+    color: #333333;
+}
+
+#footer a:hover {
+    color: #FFE114;
 }

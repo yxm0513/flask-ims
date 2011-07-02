@@ -12,7 +12,8 @@
         <li><a href="{{ url_for('todo.index') }}" > Todo </a></li>
         <li><a href="{{ url_for('photo.index') }}" > Photo </a></li>
         <li><a href="{{ url_for('wiki.wiki') }}" > Wiki </a></li>
-        <li><a href="{{ url_for('feed.wiki') }}" > Feed </a></li>
+        <li> Feed: <a href="{{ url_for('feed.wiki') }}" > Generator </a>
+    | <a href="{{ url_for('feed.reader') }}" > Reader </a> </li>
         <li> Test: <a href="{{ url_for('test.jquery1') }}" > jQuery1 </a> 
     | <a href="{{ url_for('test.jquery2') }}" > jQuery2 </a>
     | <a href="{{ url_for('test.json') }}" > json </a>
