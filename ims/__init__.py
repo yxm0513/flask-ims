@@ -22,6 +22,7 @@ from view import general
 from view import todo
 from view import photo
 from view import wiki 
+from view import feed
 
 app.register_module(test.mod)
 app.register_module(account.mod)
@@ -30,3 +31,4 @@ app.register_module(general.mod)
 app.register_module(todo.mod, url_prefix='/todo')
 app.register_module(photo.mod, url_prefix='/photo')
 app.register_module(wiki.mod, url_prefix='/wiki')
+app.register_module(feed.mod, url_prefix='/rss')

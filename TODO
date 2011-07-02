@@ -13,7 +13,7 @@
  * image support -- PIL
  * mashups : from simple cd : scrapy
  * RSS feeds, jsontify 
-	: werkzeug.contrib.atom import AtomFeed
+	: werkzeug.contrib.atom import AtomFeed -- done
 	: from xml.etree import ElementTree
  * chinese support : http://packages.python.org/Flask-Babel/ 
     * maybe not need this, just use chinese in code
@@ -48,3 +48,4 @@ FixMe:
 	* login: remember me, find back password(email module)
 	* wiki others: name space, attachment, other syntax, auto link		
 	* user is_admin()
+	* add user for Wiki, and update it in feed
