@@ -84,11 +84,9 @@ a {
 }
 
 #wikitext {
-    height:500px;
+    height:400px;
     width:960px;
     position: static;
-    left: -9999px; 
-    top: -9999px;
 }
 
 #left{

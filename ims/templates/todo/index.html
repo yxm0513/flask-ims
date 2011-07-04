@@ -5,24 +5,25 @@
   <form action="{{ url_for('todo.do') }}" method=post>
     <table class=todos>
       <tr>
+        <th>S
         <th>#
         <th>Title
         <th>Date
-        <th>Done?
-        <th>Remove?
+        <th>Status
       {%- for todo in todos %}
       <tr class=title>
+        <td><input type=checkbox name=S.{{ todo.id }}>
         <td>{{ todo.id }}
         <td>{{ todo.title }}
         <td>{{ todo.pub_date.strftime('%Y-%m-%d %H:%M') }}
-        <td><input type=checkbox name=done.{{ todo.id }}{{ " checked" if todo.done }}>
-        <td><input type=checkbox name=del.{{ todo.id }}>
+        <td> {% if todo.done %} Done {%else%} Open {%endif%}
       <tr class=text>
         <td colspan=3>{{ todo.text }}</td>
       {%- endfor %}
     </table>
     <p>
-      <input type=submit value="Submit">
+      <input type=submit name=delete value="Delete">
+      <input type=submit name=done value="Change Status">
       <a href="{{ url_for('todo.new') }}">New item</a>
   </form>
 {% endblock %}

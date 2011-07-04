@@ -32,9 +32,20 @@ def new():
 @mod.route('/do', methods=['POST'])
 @login_required
 def do():
-    for todo in Todo.query.all():
-        todo.done = ('done.%d' % todo.id) in request.form
-        if ('del.%d' % todo.id) in request.form:
-            todo.delete_from_db()
-    flash('Updated status')
+    if request.method == 'POST':
+        if 'done' in request.form:
+            for key in request.form.keys():
+               if key[0:2] == 'S.':
+                   todo = Todo.query.get(key[2])
+                   if todo.done:
+                       todo.done = False
+                   else:
+                       todo.done = True
+                   todo.update_to_db()
+        if 'delete' in request.form:
+            for key in request.form.keys():
+               if key[0:2] == 'S.':
+                   todo = Todo.query.get(key[2])
+                   todo.delete_from_db()
+    flash('Updated')
     return redirect(url_for('index'))

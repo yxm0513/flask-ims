@@ -3,12 +3,8 @@
 {% block main%}
   <h2><a href="{{url_for('wiki.wiki')}}{{name}}">{{name}}</a> </h2>
 {% filter markdown %} {{wiki.text}} {% endfilter %}
-<form action="{{url_for('wiki.wiki')}}{{name}}" method=get>
-{{form.action(value="edit")}} 
-<input type=submit value="Edit this page">
-</form>
-<form action="{{url_for('wiki.wiki')}}{{name}}" method=get>
-{{form.action(value="attach")}} 
-<input type=submit value="Attach">
+<form action="{{url_for('wiki.wiki')}}{{name}}" method=post>
+{{form.edit}} 
+{{form.attach}} 
 </form>
 {% endblock %}

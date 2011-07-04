@@ -4,15 +4,13 @@
   <h2> <a href="{{url_for('wiki.wiki')}}{{name}}">{{name}}</a> </h2>
   <form action="{{url_for('wiki.wiki')}}{{name}}" method=post>
     <div>
+        {{ form.wikitext.label }}
         {{ form.wikitext(rows=50,cols=100) }}
     </div>
     <div>
-    {{form.action(value="save")}} 
-    <input type=submit value="Save">
-    {{form.action(value="preview")}} 
-    <input type=submit value="Preview">
-    {{form.action(value="cancel")}} 
-    <input type=submit value="Cancel">
+    {{form.save}} 
+    {{form.preview}} 
+    {{form.cancel}} 
     </div>
   </form>
 

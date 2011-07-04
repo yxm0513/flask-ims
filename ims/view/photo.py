@@ -2,6 +2,7 @@ from flask import Module, request, flash, url_for, redirect, \
      render_template, abort
 from flaskext.uploads import UploadSet, IMAGES, configure_uploads
 from flaskext.login import login_required, current_user
+from flaskext.sqlalchemy import Pagination
 
 from ims.models import db, Photo
 from ims.forms import UploadForm
@@ -16,6 +17,10 @@ configure_uploads(app, (photos))
 def index():
     return render_template('photo/index.html', photo = Photo.query.all())
 
+@mod.route('/page/<int:page>')
+def page():
+    photo = Photo.query.all()
+    Pagination(photo, )
 
 @mod.route('/upload', methods=['GET', 'POST'])
 @login_required
@@ -37,8 +42,6 @@ def show(id):
     photo = Photo.query.filter_by(id=id).first() 
     if photo is None:
         abort(404)
-    import pdb
-    pdb.set_trace()
     return render_template('photo/show.html', photo=photo)
 
 
