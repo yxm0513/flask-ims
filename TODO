@@ -10,6 +10,7 @@
     * finally, flaskext.markdown used -- done
     * if need intergrated with SVN
  * test : http://packages.python.org/Flask-Testing/ -- need more code here~
+ * flask-silk : http://github.com/sublee/flask-silk -- done
  * image support -- PIL
  * mashups : from simple cd : scrapy
  * RSS feeds, jsontify 
@@ -18,16 +19,15 @@
  * chinese support : http://packages.python.org/Flask-Babel/ 
     * maybe not need this, just use chinese in code
  * Make IMS logo, as well as pictures that required
- * get css baseline 
+ * get css baseline  -- basic done
  * menu : theme support? -- basic done
     * menu with jQuery: ajax
  * pagenation :
- * navigation db table for nav links
+ * navigation db table for nav links, mutli-levels
  * More database table relatetionship, Wiki and User, Todo and User .etc
  * database admin(CRUD)
  * search : Lucene solr
  * vedio support : html5 or flash
- * flask-silk : http://github.com/sublee/flask-silk
 
  other: Scrapy BeautifulSoup Xapian mechanize
 项目实现的主要功能：
