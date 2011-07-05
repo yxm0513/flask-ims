@@ -10,7 +10,7 @@ ims -- inventoy management system
 ~~~~~~~~~~
 本项目出于学习目的，是一个货物管理的系统。
 
-计划分两步来实现这样的要求:
+计划分以下两步来实现:
 
 * 研究和实现web通用技术，其中包括：
 
@@ -33,6 +33,7 @@ ims -- inventoy management system
   * Python
   * SQLite3
   * SQLAlchmey
+  * feedparser
   * python-wtforms
   * python-markdown
   * python-profile: pstats
