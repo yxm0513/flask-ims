@@ -33,9 +33,22 @@ a {
 
 #nav
 {
-    float: left;
-    width: 960px;
+    /*
     background: #C2CFF1;
+    */ 
+    background-image:url("../image/nav.png");
+    background-color: #D6D6D6;
+    background-position: 0 0;
+    background-repeat: x no-repeat;
+    clear: both;
+    border-top-left-radius:7px 7px;
+    border-top-right-radius:7px 7px;
+    clear:both;
+    height:31px;
+    overflow-x:hidden;
+    overflow-y:hidden;
+    text-align:left;
+    width:960px; 
 }
 
 #nav ul
