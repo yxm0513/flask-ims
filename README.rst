@@ -36,7 +36,11 @@ ims -- inventoy management system
   * feedparser
   * python-wtforms
   * python-markdown
-  * python-profile: pstats
+  * python-profiler: pstats
+
+commands::
+sudo  apt-get install python sqlite3 python-sqlalchemy python-feedparser python-wtforms python-markdown python-profiler
+ 
 
 部署
 ~~~~~~~~
@@ -47,3 +51,23 @@ ims -- inventoy management system
     * install all above requirements
     * do setup in settings, like project directory
     * run #python run.py
+
+  * lighttp/flup/fcgi
+
+    * apt-get install lighttp python-flup
+    * move source code to /var/www
+    * change ims directory www-data can access
+    * modify required items in ./10-fastcgi.conf
+    * copy to /etc/lighttpd/conf-enabled/10-fastcgi.conf
+    * sudo lighty-enable-mod fastcgi
+    * restart lighttp services
+    * access: http://hostname/
+   
+    
+
+其他
+~~~~~~~~
+
+  * 工具
+    * py.sh : 格式化代码
+    * sub.sh : 提交代码

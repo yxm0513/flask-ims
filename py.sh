@@ -12,6 +12,7 @@ do
     for f in ${files[@]}
     do
         echo ${f}
+        dos2unix ${f} 1>/dev/null 2>&1
         sed 's/	/    /g' "${f}" > filename.notabs && mv filename.notabs "${f}"
     done
 done
