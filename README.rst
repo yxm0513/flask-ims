@@ -62,7 +62,7 @@ ims -- inventoy management system
     * restart lighttp services
     * access: http://hostname/ims
    
- * cgi sitll not work
+  * cgi sitll not work
     
 
 其他
