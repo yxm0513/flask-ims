@@ -55,14 +55,13 @@ sudo  apt-get install python sqlite3 python-sqlalchemy python-feedparser python-
   * lighttp/flup/fcgi
 
     * apt-get install lighttp python-flup
-    * move source code to /var/www
-    * change ims directory www-data can access
-    * modify required items in ./10-fastcgi.conf
-    * copy to /etc/lighttpd/conf-enabled/10-fastcgi.conf
-    * sudo lighty-enable-mod fastcgi
+    * move source flask-ims to /var/www
+    * grant flask-ims with user www-data  access
+    * append fcgi.conf to lighttpd.conf
     * restart lighttp services
-    * access: http://hostname/
+    * access: http://hostname/ims
    
+ * cgi sitll not work
     
 
 其他
