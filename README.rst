@@ -38,8 +38,9 @@ ims -- inventoy management system
   * python-markdown
   * python-profiler: pstats
 
-commands::
-sudo  apt-get install python sqlite3 python-sqlalchemy python-feedparser python-wtforms python-markdown python-profiler
+    commands::
+
+    sudo  apt-get install python sqlite3 python-sqlalchemy python-feedparser python-wtforms python-markdown python-profiler
  
 
 部署
@@ -68,5 +69,6 @@ sudo  apt-get install python sqlite3 python-sqlalchemy python-feedparser python-
 ~~~~~~~~
 
   * 工具
+
     * py.sh : 格式化代码
     * sub.sh : 提交代码
