@@ -3,7 +3,7 @@ body {
     margin: 0 auto;
     padding:0;
     font-size:12px;
-    font-family:"Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
+    font-family: 'Arial', sans-serif, "Lucida Grande","DejaVu Sans","Bitstream Vera Sans";
 }
 
 h1, h2, h3 {
@@ -30,18 +30,51 @@ h3 {
 #wapper {
     width:960px;
     margin: 0 auto;
-        padding: 0;
+    padding: 0;
 }
 
 .todo {
 }
 
 #header {
+    width: 100%;
+    clear: both;
 }
 
 #logo {
-    display:block;
-    width:768px;
+}
+
+#logo-wapper {
+    background-image:url(../image/bar/bar-bg.png);
+    background-position:50% 0;
+    background-repeat:no-repeat no-repeat;
+    float:left;
+    height:252px;
+    overflow-x:visible;
+    overflow-y:visible;
+    padding-bottom:20px;
+    padding-left:0;
+    padding-right:0;
+    padding-top:20px;
+    margin: 10px 0 10px 0;
+    width:100%;
+}
+
+.logo-icon {
+    float: left;
+    width: 300px;
+    margin-left: 20px;
+    overflow-x:visible;
+    overflow-y:visible;
+    text-align: center;
+    color:#947057;
+    font-family:arial, sans-serif;
+    font-size:2.6em;
+    text-transform:uppercase;
+}
+
+.logo-icon img {
+    margin-left: 20px;
 }
 
 #metanav {
