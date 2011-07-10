@@ -1,15 +1,36 @@
-body{
+body {
     width:960px;
     margin: 0 auto;
     padding:0;
     font-size:12px;
     font-family:"Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
-    
+}
+
+h1, h2, h3 {
+    color: #121;
 }
 
 a {
     color: #389200;
     text-decoration: none; 
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.2em;
+}
+
+#wapper {
+    width:960px;
+    margin: 0 auto;
+        padding: 0;
 }
 
 .todo {
@@ -33,18 +54,13 @@ a {
 
 #nav
 {
-    background: #2D2D2D;
-    /*
-    #C2CFF1
-    background-image:url("../image/nav.png");
-    background-color: #D6D6D6;
-    background-repeat: x no-repeat;
-    */ 
-    clear: both;
+    background: #B5331A;
     height: 20px;
     text-align:left;
-    width:960px; 
+    overflow:hidden;
+    clear: both;
 }
+
 
 #nav ul
 {
@@ -89,7 +105,7 @@ a {
 }
 
 #main {
-    width:960px;
+    clear:both;
 }
 
 #wikitext {
@@ -98,7 +114,7 @@ a {
     position: static;
 }
 
-#left{
+#admin-left{
     width:166px;
     margin-right:5px;
     float:left;
@@ -109,7 +125,14 @@ a {
     clear:left;
 }
 
-#right{
+#admin-left ul{
+    list-style-type:none;
+    display:block;
+    padding: 0;
+    margin: 0;
+}
+
+#admin-right{
     clear:right;
 }
 

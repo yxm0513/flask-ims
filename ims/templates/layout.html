@@ -1,6 +1,6 @@
 <!doctype html>
 {% block head %}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('.static', filename='css/base.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('.static', filename='css/default.css') }}"/>
     <script type=text/javascript src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.js"></script>
     <script type=text/javascript src="{{ url_for('.static', filename='js/ims.js') }}"></script>
 <title>Flask IMS | {% block title%} {%endblock%}</title>
@@ -22,11 +22,18 @@
       {% endif %}
     {% endwith %}
     </div>
+    <div id="wapper">
     <div id="header">
     {% block header %}
+        <div id="metanav">
         {% include "metanav.html"%}
+        </div>
+        <div id="nav">
         {% include "nav.html"%}
+        </div>
+        <div id="logo">
         {% include "logo.html"%}
+        </div>
     {% endblock %}
     </div>
     
@@ -47,5 +54,5 @@
         {% include "footer.html"%}
     {% endblock %}
     </div>
-
+    </div>
 </body>

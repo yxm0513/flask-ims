@@ -1,0 +1,159 @@
+body {
+    font-family: serif;
+        font-size: 12;
+}
+
+h1, h2, h3 {
+    color: #121;
+}
+
+a {
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.2em;
+}
+
+#wapper {
+    width:960px;
+    margin: 0 auto;
+        padding: 0;
+}
+
+#header {
+    width: 100%; 
+    border-color: #121;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    clear: both;
+}
+
+#metanav {
+    text-align: right;
+    font-size: 0.9em;
+    padding: 1px;
+    margin-bottom: 1px
+}
+
+#nav {
+    overflow:hidden;
+}
+
+#nav ul {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+#nav li a {
+    display: block;
+    float: left;
+    padding: 3px 15px;
+    text-decoration: none;
+    border-right: 1px solid #000;
+}
+
+#nav li a:hover { 
+    background: #A0BBC4;
+}
+
+#messages {
+    height: 40px;
+}
+
+.message {
+    font-family: "Courier New", Arial;
+    background: #64CF4B;
+    font-size: 10px;
+}
+
+.error {
+    font-family: "Courier New", Arial;
+    background: #E51629;
+    font-size: 10px;
+}
+
+#main {
+    clear: both;
+}
+
+#wikitext {
+    height:400px;
+    width:960px;
+    position: static;
+}
+
+#admin-left{
+    width:166px;
+    margin-right:5px;
+    float:left;
+    text-align:left; 
+    clear:left; 
+    overflow:hidden; 
+    border-right:1px solid #c9d7f1;
+    clear:left;
+}
+
+#admin-left ul{
+    list-style-type:none;
+    display:block;
+    padding: 0;
+    margin: 0;
+}
+
+#admin-right{
+    clear:right;
+}
+
+#tool {
+    height: 20px;
+    font-size: 10px;
+    text-align: center;
+    width:960px;
+    position: absolute;
+    bottom: 36px;
+}
+
+#tool ul {
+    margin: 0;
+    padding: 0;
+}
+
+#tool ul li {
+    display: inline;
+    list-style-type: none;
+}
+
+#footer {
+    border-top: 1px solid #000;
+    height: 35px;
+    width:960px;
+    position: absolute;
+    bottom: 0px;
+}
+
+#footer p {
+    font-size: 0.85em;
+    line-height: 15px;
+    margin: 10px 20px;
+}
+
+#badge {
+    float: right;
+}
+
+#footer p a {
+    color: #333333;
+}
+
+#footer a:hover {
+    color: #FFE114;
+}
