@@ -36,6 +36,9 @@ class User(db.Model):
     def delete_from_db(self):
         db.session.delete(self)
         db.session.commit()
+
+    def update_to_db(self):
+        db.session.commit()
      
     def set_password(self, password):
         self.password = generate_password_hash(password)
@@ -71,6 +74,9 @@ class Todo(db.Model):
         db.session.delete(self)
         db.session.commit()
 
+    def update_to_db(self):
+        db.session.commit()
+
 from ims.forms import photos
 class Photo(db.Model):
     id = db.Column('id', db.Integer, primary_key=True)
@@ -90,6 +96,9 @@ class Photo(db.Model):
 
     def delete_from_db(self):
         db.session.delete(self)
+        db.session.commit()
+
+    def update_to_db(self):
         db.session.commit()
 
     @property
@@ -123,4 +132,7 @@ class Wiki(db.Model):
 
     def delete_from_db(self):
         db.session.delete(self)
+        db.session.commit()
+
+    def update_to_db(self):
         db.session.commit()
