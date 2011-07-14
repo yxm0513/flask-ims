@@ -1,8 +1,7 @@
 {% if current_user.is_authenticated() %}
-    Welcome, {{ current_user.name }} | <a href="{{ url_for('account.logout') }}">log out</a> 
-    | <a href="{{ url_for('general.settings') }}">settings</a>
+    欢迎, {{ current_user.name }} | <a href="{{ url_for('account.logout') }}">登出</a> 
+    | <a href="{{ url_for('general.settings') }}">设置</a>
 {% else %}
-    <a href="{{ url_for('account.login') }}">log in</a> 
-    | <a href="{{ url_for('account.register') }}">register</a> 
+    <a href="{{ url_for('account.login') }}">登录</a>
 {% endif %}
-| <a href="{{ url_for('general.help') }}">help</a>
+| <a href="{{ url_for('general.help') }}">帮助</a>

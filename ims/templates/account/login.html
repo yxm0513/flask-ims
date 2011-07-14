@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
-{% block title %} Login {% endblock %}
+{% block title %} 系统登录 {% endblock %}
 {% block main%}
-<h1> Login </h1>
 <div class="error">
     {% if form.errors %}
         {% for error in form.errors %}
@@ -10,15 +9,21 @@
     {% endif %}
 </div>
 
-<form action="" method=post>
-    <dl> 
-      <dt>{{ form.username.label }}:
-      <dt> {{ form.username }}
-      <dt>{{ form.password.label }}
-      <dt> {{ form.password }}
-      <dt> <input type=checkbox name=remember value=0> <small>Remember Me</small>
-      <dt> {{ form.submit }}
-      <dt> Do not have account, get one <a href="{{url_for('account.register')}}"> register </a>
-    </dl>
-</form>
+<div class="easyui-dialog" style="width:500px;height:300px;background:#fafafa;overflow:hidden"
+        title="登录系统" closable="false" border="false">
+    <div class="header" style="height:60px;">
+        <div class="toptitle">仓库管理系统</div>
+    </div>
+    <div style="padding:60px 0;">
+    <form action="" method=post>
+        <div style="padding-left:150px">
+        <dl> 
+          <dt>{{ form.username.label }} {{ form.username }}
+          <dt>{{ form.password.label }} {{ form.password }}
+          <dt> <input type=checkbox name=remember value=0> <small>记住我</small> {{ form.submit }}
+        </dl>
+        </div>
+    </form>
+    </div>
+</div>
 {% endblock %}

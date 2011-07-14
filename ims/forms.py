@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*- 
+
 from flaskext.wtf import Form, TextField, PasswordField, BooleanField,\
          SubmitField, Required, validators, TextAreaField, HiddenField
 from flaskext.wtf.file import FileField, file_required, file_allowed
@@ -7,10 +9,10 @@ class TestForm(Form):
     name = TextField("name", validators=[Required()])
 
 class LoginForm(Form):
-    username = TextField("Username", validators=[Required()])
-    password = PasswordField("Password", validators=[Required()])
+    username = TextField(u"登录用户", validators=[Required()])
+    password = PasswordField(u"登录密码", validators=[Required()])
     #remember = BooleanField("remember")
-    submit = SubmitField("Login")
+    submit = SubmitField(u"登录")
 
 class RegisterForm(Form):
     username = TextField('Username', [validators.Length(min=4, max=25)])
