@@ -86,9 +86,11 @@ def register():
         email = form.email.data
         if User.query.filter_by(username = username).first():
             flash('The username is already taken')
+        elif cmp(password, password2) != 0:
+            flash('password mismatched')
         else:
             user = User(username, None, email)
-            user.set_password(hash_pass)
+            user.set_password(password)
             try:
                 user.store_to_db()
                 return render_template('account/registerok.html')

@@ -34,6 +34,7 @@ ims -- inventoy management system
   * SQLite3
   * SQLAlchmey
   * feedparser
+  * simplejson
   * python-wtforms
   * python-markdown
   * python-profiler: pstats
@@ -58,6 +59,7 @@ ims -- inventoy management system
     * apt-get install lighttp python-flup
     * move source flask-ims to /var/www
     * grant flask-ims with user www-data  access
+       chown -R www-data:www-data 
     * append fcgi.conf to lighttpd.conf
     * restart lighttp services
     * access: http://hostname/ims
