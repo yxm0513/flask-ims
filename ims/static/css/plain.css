@@ -43,11 +43,8 @@ h3 {
 #logo-wapper {
     background-image:url(../image/bar/bar-bg.png);
     background-position:50% 0;
-    background-repeat:no-repeat no-repeat;
     float:left;
     height:252px;
-    overflow-x:visible;
-    overflow-y:visible;
     padding-bottom:20px;
     padding-left:0;
     padding-right:0;
@@ -60,8 +57,6 @@ h3 {
     float: left;
     width: 300px;
     margin-left: 20px;
-    overflow-x:visible;
-    overflow-y:visible;
     text-align: center;
     color:#947057;
     font-family:arial, sans-serif;
