@@ -1,8 +1,9 @@
 from flask import Module, request, flash, url_for, redirect, \
-     render_template, abort
+     abort
 from ims.models import db, Todo
 from flaskext.login import login_required
 
+from ims.theme import render_template
 
 mod = Module(__name__)
 

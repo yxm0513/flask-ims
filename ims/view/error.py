@@ -1,4 +1,5 @@
-from flask import Module, render_template
+from flask import Module
+from ims.theme import render_template
 
 mod = Module(__name__)
 

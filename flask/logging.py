@@ -5,13 +5,13 @@
 
     Implements the logging support for Flask.
 
-    :copyright: (c) 2010 by Armin Ronacher.
+    :copyright: (c) 2011 by Armin Ronacher.
     :license: BSD, see LICENSE for more details.
 """
 
 from __future__ import absolute_import
 
-from logging import getLogger, StreamHandler, Formatter, Logger, DEBUG
+from logging import getLogger, StreamHandler, Formatter, getLoggerClass, DEBUG
 
 
 def create_logger(app):
@@ -21,6 +21,7 @@ def create_logger(app):
     function also removes all attached handlers in case there was a
     logger with the log name before.
     """
+    Logger = getLoggerClass()
 
     class DebugLogger(Logger):
         def getEffectiveLevel(x):

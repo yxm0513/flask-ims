@@ -1,10 +1,10 @@
-from flask import Module, render_template, request, flash, \
+from flask import Module, request, flash, \
     redirect, url_for
 from flaskext.login import login_required
 from flaskext.markdown import Markdown
 from ims.models import Wiki
 from ims.forms import WikiShowForm, WikiEditForm
-
+from ims.theme import render_template
 
 mod = Module(__name__)
 

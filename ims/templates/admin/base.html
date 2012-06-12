@@ -1,27 +1,14 @@
-{% extends "layout.html" %}
+{% extends theme("layout.html") %}
 {% block title %} Administration {% endblock %}
 {% block main%}
-  <h2>Administration</h2>
+  <h2>管理：</h2>
   <div id=admin-left>
   {% block left%}
   <ul>
-    <li> Database
-        <ul>
-            <li><a href="{{ url_for('admin.initdb')}}">Create database</a></br>
-            <li><a href="{{ url_for('admin.dropdb')}}">Drop database</a></br>
-        </ul>
-    <li> User
-        <ul>
-            <li><a href="{{ url_for('admin.listuser')}}">List User</a></br>
-            <li><a href="{{ url_for('admin.adduser')}}">Add User</a></br>
-            <li><a href="{{ url_for('admin.deluser')}}">Del User</a></br>
-        </ul>
-    <li> Todo
-        <ul>
-            <li><a href="{{ url_for('admin.listtodo')}}">List Todo</a></br>
-            <li><a href="{{ url_for('admin.addtodo')}}">Add Todo</a></br>
-            <li><a href="{{ url_for('admin.deltodo')}}">Del Todo</a></br>
-        </ul>
+    <li><a href="{{ url_for('admin.database')}}"> 数据库 </a> </li>
+    <li><a href="{{ url_for('admin.users')}}"> 用户管理 </a> </li>
+    <li><a href="{{ url_for('admin.todos')}}"> TODO管理 </a> </li>
+    <li><a href="{{ url_for('admin.themes')}}"> 设置外观 </a> </li>
   </ul>
   {% endblock %}
    </div>

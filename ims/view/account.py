@@ -1,10 +1,11 @@
-from flask import Module, render_template, redirect, request, \
+from flask import Module, redirect, request, \
     flash, url_for, session
 from flaskext.login import  LoginManager, login_user, logout_user,\
         login_required, logout_user, UserMixin, AnonymousUser,\
         confirm_login, fresh_login_required, current_user
 from ims.models import db, User
 from ims.forms import LoginForm, RegisterForm
+from ims.theme import render_template
 
 mod = Module(__name__)
 
@@ -78,7 +79,7 @@ def register():
     form = RegisterForm(request.form)
     if not (current_user.is_anonymous()):
         flash("you are logined")
-        return render_template('register.html', form = form)
+        return render_template('logout.html')
     if request.method == 'POST' and form.validate_on_submit():
         username = form.username.data
         password = form.password.data

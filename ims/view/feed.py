@@ -1,7 +1,8 @@
 from urlparse import urljoin
-from flask import Module, request, url_for, render_template
+from flask import Module, request, url_for
 from werkzeug.contrib.atom import AtomFeed
 from feedparser import parse
+from ims.theme import render_template
 
 from ims.models import Wiki, Todo
 

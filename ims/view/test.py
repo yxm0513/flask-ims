@@ -1,4 +1,5 @@
-from flask import Module, render_template, jsonify
+from flask import Module, jsonify
+from ims.theme import render_template
 
 mod = Module(__name__)
 

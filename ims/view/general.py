@@ -1,4 +1,10 @@
-from flask import Module, render_template
+from flask import Module
+from ims.theme import render_template
+#from xhtml2pdf import pisa
+#from cStringIO import StringIO
+
+
+
 
 mod = Module(__name__)
 
@@ -19,4 +25,9 @@ def help():
 def index():
     return render_template('general/index.html')
 
+#@mod.route('/pdf')
+#def pdf(pdf_data):
+#    pdf = StringIO()
+#    pisa.CreatePDF(StringIO(pdf_data.encode('utf-8')), pdf)
+#    return pdf
 

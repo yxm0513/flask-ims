@@ -1,9 +1,10 @@
 from flask import Module, request, flash, url_for, redirect, \
-     render_template, abort
+     abort
 from flaskext.uploads import UploadSet, IMAGES, configure_uploads
 from flaskext.login import login_required, current_user
 from flaskext.sqlalchemy import Pagination
 
+from ims.theme import render_template
 from ims.models import db, Photo
 from ims.forms import UploadForm
 

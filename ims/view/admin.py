@@ -1,9 +1,10 @@
 from flask import Module, request, flash, url_for, redirect, \
-     render_template, abort
+     abort, current_app, session
 from flaskext.sqlalchemy import SQLAlchemy
 from flaskext.login import login_required
 from werkzeug import generate_password_hash
-
+from flaskext.themes import get_themes_list
+from ims.theme import render_template
 
 
 mod = Module(__name__, url_prefix='/admin')
@@ -12,6 +13,10 @@ from ims.models import db, User, Todo, Wiki
 from ims.forms import AddUserForm, RemoveUserForm
 
 # database
+@mod.route('/database')
+def database():
+    return render_template("admin/database.html")
+
 @mod.route('/initdb')
 def initdb():
     try:
@@ -100,9 +105,10 @@ def deluser():
 def index():
     return render_template('admin/index.html')
 
-@mod.route('/listuser', methods = ['GET', 'POST'])
-def listuser():
-    return render_template('admin/listuser.html')
+@mod.route('/users', methods = ['GET'])
+def users():
+    users = User.query.all()
+    return render_template('admin/users.html', users = users)
 
 @mod.route('/addtodo', methods = ['GET', 'POST'])
 def addtodo():
@@ -112,6 +118,19 @@ def addtodo():
 def deltodo():
     return render_template('admin/deltodo.html')
 
-@mod.route('/listtodo', methods = ['GET', 'POST'])
-def listtodo():
-    return render_template('admin/listtodo.html')
+@mod.route('/todos', methods = ['GET'])
+def todos():
+    return render_template('admin/todos.html', todos=Todo.query.order_by(Todo.pub_date.desc()).all())
+
+
+@mod.route('/themes/')
+def themes():
+    themes = get_themes_list()
+    return render_template('admin/themes.html', themes=themes)
+
+@mod.route('/themes/<ident>')
+def settheme(ident):
+    if ident not in current_app.theme_manager.themes:
+        abort(404)
+    session['theme'] = ident
+    return redirect(url_for('themes'))

@@ -5,15 +5,19 @@ from functools import wraps
 from flask import Flask, render_template
 from flaskext.debugtoolbar import DebugToolbarExtension
 from flaskext.silk import Silk
+from flaskext.themes import setup_themes, packaged_themes_loader
 
 ###################### App Start #######################
 app = Flask(__name__)
 
-import setting
 app.config.from_object(setting)
 
 # debug tool
 toolbar = DebugToolbarExtension(app)
+
+# themes
+#packaged_themes_loader(app)
+setup_themes(app, app_identifier='flask-ims')
 
 # slik
 silk = Silk(app)

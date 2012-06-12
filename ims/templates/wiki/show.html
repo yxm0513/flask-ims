@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends theme("layout.html") %}
 {% block title %} {{name}} {% endblock %}
 {% block main%}
   <h2><a href="{{url_for('wiki.wiki')}}{{name}}">{{name}}</a> </h2>
