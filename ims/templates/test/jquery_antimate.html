@@ -120,13 +120,13 @@
 <div id="guy">
     <div id="guycontainer">
         <div class="frame">
-            <img src="{{ url_for('.static', filename='image/antimate/guyframe.png') }}"/>
+            <img src="{{ theme_static('image/antimate/guyframe.png') }}"/>
         </div>
         <div id="guyoverlay">
             <div id="guyedge">&nbsp;</div>
             <div id="guyblock">&nbsp;</div>
         </div>
-        <img class="loadpic" src="{{ url_for('.static', filename='image/antimate/guy.jpg') }}"/>
+        <img class="loadpic" src="{{ theme_static('image/antimate/guy.jpg') }}"/>
     </div>
 </div>
 
@@ -139,13 +139,13 @@
 <div id="dude">
     <div id="dudecontainer">
         <div class="frame">
-            <img src="{{ url_for('.static', filename='image/antimate/dudeframe.png') }}"/>
+            <img src="{{ theme_static('image/antimate/dudeframe.png') }}"/>
         </div>
         <div id="dudeoverlay">
             <div id="dudeblock">&nbsp;</div>
             <div id="dudeedge">&nbsp;</div>
         </div>
-        <img class="loadpic" src="{{ url_for('.static', filename='image/antimate/dude.jpg') }}"/>
+        <img class="loadpic" src="{{ theme_static('image/antimate/dude.jpg') }}"/>
     </div>
 </div>
 {% endblock %}

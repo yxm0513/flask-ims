@@ -21,6 +21,10 @@ def settings():
 def help():
     return render_template("general/help.html")
 
+@mod.route('/about')
+def about():
+    return render_template("general/about.html")
+
 @mod.route('/')
 def index():
     return render_template('general/index.html')

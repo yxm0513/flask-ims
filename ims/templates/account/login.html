@@ -9,17 +9,17 @@
     {% endif %}
 </div>
 
-<div>
-    <div class="header" style="height:60px;">
+<div class="login">
+    <div class="header">
         <div class="toptitle">仓库管理系统</div>
     </div>
-    <div style="padding:60px 0;">
+    <div style="padding:30px 0;">
     <form action="" method=post>
-        <div style="padding-left:150px">
+        <div style="padding-left:50px">
         <dl> 
-          <dt>{{ form.username.label }} {{ form.username }}
-          <dt>{{ form.password.label }} {{ form.password }}
-          <dt> <input type=checkbox name=remember value=0> <small>记住我</small> {{ form.submit }}
+          <dt>{{ form.username.label }} {{ form.username }}</dt>
+          <dt>{{ form.password.label }} {{ form.password }}</dt>
+          <dt> <input type=checkbox name=remember value=0> <small>记住我</small> {{ form.submit }}</dt>
         </dl>
         </div>
     </form>

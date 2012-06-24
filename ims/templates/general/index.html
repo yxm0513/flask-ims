@@ -6,20 +6,32 @@
     A IMS build with technolegies Flask, SQLite3, jQuery. 
 </p>
 <p>
-    Currently, it have :
+    Currently, it have functions like above links , as well as:
     <ul> 
-        <li><a href="{{ url_for('admin.index') }}" > Admin </a></li>
-        <li><a href="{{ url_for('todo.index') }}" > Todo </a></li>
-        <li><a href="{{ url_for('photo.index') }}" > Photo </a></li>
-        <li><a href="{{ url_for('wiki.wiki') }}" > Wiki </a></li>
-        <li> Feed: <a href="{{ url_for('feed.wiki') }}" > <img src="{{ url_for(".silkicon", filename="feed.png")}}">  Generator </a>
-    | <a href="{{ url_for('feed.reader') }}" > <img src="{{ url_for(".silkicon", filename="feed_go.png")}}"> Reader </a> </li>
-        <li> Test: <a href="{{ url_for('test.jquery1') }}" > jQuery1 </a> 
-    | <a href="{{ url_for('test.jquery2') }}" > jQuery2 </a>
-    | <a href="{{ url_for('test.json') }}" > json </a>
-    | <a href="{{ url_for('test.test') }}" > test </a>
-    </li>
+        <li> Feed: 
+        <ul>
+	        <li>
+	        	<a href="{{ url_for('feed.wiki') }}" > <img src="{{ url_for(".silkicon", filename="feed.png")}}">  Generator </a>
+	        </li>
+	        <li>
+	        	<a href="{{ url_for('feed.reader') }}" > <img src="{{ url_for(".silkicon", filename="feed_go.png")}}"> Reader </a>
+	        </li>
+        </ul>
+       </li>
+        <li> Test: 
+        <ul>
+        <li><a href="{{ url_for('test.jquery1') }}" > jQuery1 </a> </li>
+        <li><a href="{{ url_for('test.jquery2') }}" > jQuery2 </a></li>
+        <li><a href="{{ url_for('test.json') }}" > json </a></li>
+        <li><a href="{{ url_for('test.test') }}" > test </a></li>
+        </ul>
+       </li>
     </ul>
+	<div>
+	<p><a href="/wiki/todo" > Todo List </a></p>
+	
+	</div>
+
 </p>
 {% endblock %}
 <body>

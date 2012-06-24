@@ -1,12 +1,13 @@
 {% block title %} Feed Reader {% endblock %}
 {% block main %}
-<h2> Just feed Show Up, no save to database </h2>
-<dt> Title : {{ d.feed.title}}
-<dt> Link  : {{ d.feed.link}}
-<dt> Subtitle : {{ d.feed.subtitle }}
-{% for e in d['entries'] %}
-  <dd> title: {{e.title}}
-  <dd> link: {{e.rel}}
-{% endfor %}
+<h1> Just feed Show Up, no saving into database </h1>
+<dt> Title : {{ d.feed.title}} </dt>
+<dt> Link  : {{ d.feed.link}} </dt>
+<dt> Subtitle : {{ d.feed.subtitle }} </dt>
+	{% for e in d['entries'] %}
+	<hr/>
+	  <dd> title: {{e.title}}</dd>
+	  <dd> link: {{e.rel}}</dd>
+	{% endfor %}
 {% endblock %}
 <body>

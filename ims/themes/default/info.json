@@ -1,0 +1,8 @@
+{
+    "application": "flask-ims", 
+    "identifier": "default", 
+    "name": "Default", 
+    "author": "Simon Yang",
+    "license": "MIT/X11",
+    "description": "An easy theme."
+}

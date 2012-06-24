@@ -41,7 +41,7 @@ class TodoForm(Form):
 
 photos = UploadSet('photos', IMAGES)
 class UploadForm(Form):
-    photo = FileField("Upload your image", validators=[file_required(),
+    photo = FileField("上传图片", validators=[file_required(), \
         file_allowed(photos, "Images only!")])
     submit = SubmitField("Submit")
 

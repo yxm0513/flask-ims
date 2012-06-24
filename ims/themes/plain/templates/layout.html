@@ -1,0 +1,56 @@
+<!doctype html>
+{% block head %}
+    <link rel="stylesheet" type="text/css" href= "{{ theme_static('css/plain.css') }}"/>
+   
+    <script type=text/javascript src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.js"></script>
+    <script type=text/javascript src="{{ url_for('.static', filename='js/ims.js') }}"></script>
+<title> 仓库管理系统 | {% block title%} {%endblock%}</title>
+    {% block head_ext %}
+    {% endblock %}
+{% endblock %}
+<body>
+    <div id=github>
+    <a href="http://github.com/yxm0513/flask-ims">
+    <img style="position: fixed; top: 0px; right: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; " src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"/>
+    </a>
+    </div>
+    <div id="wapper">
+    <div class="messages">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="{{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    </div>
+    <div id="header">
+    {% block header %}
+        <div id="metanav">
+        {% include theme("metanav.html")%}
+        </div>
+        <div id="nav">
+        {% include theme("nav.html")%}
+        </div>
+    {% endblock %}
+    </div>
+    
+    <div id="main">
+    {% block main %}
+
+    {% endblock %}
+    </div>
+
+    <div id="tool">
+    {% block tool %}
+        {% include theme("tool.html")%}
+    {% endblock %}
+    </div>
+
+    <div id="footer">
+    {% block footer %}
+        {% include theme("footer.html")%}
+    {% endblock %}
+    </div>
+    </div>
+</body>

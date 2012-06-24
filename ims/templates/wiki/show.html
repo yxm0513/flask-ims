@@ -1,8 +1,12 @@
 {% extends theme("layout.html") %}
 {% block title %} {{name}} {% endblock %}
 {% block main%}
-  <h2><a href="{{url_for('wiki.wiki')}}{{name}}">{{name}}</a> </h2>
-{% filter markdown %} {{wiki.text}} {% endfilter %}
+  <h2 style="text-align: center;"><a href="{{url_for('wiki.wiki')}}{{name}}">{{name}}</a> </h2>
+  
+  <div id="wikitext">
+  {% filter markdown %} {{wiki.text}} {% endfilter %}
+  </div>
+
 <form action="{{url_for('wiki.wiki')}}{{name}}" method=post>
 {{form.edit}} 
 {{form.attach}} 

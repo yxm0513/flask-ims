@@ -1,6 +1,7 @@
 {% extends theme("layout.html") %}
 {% block main %}
-  <h2>Photo</h2>
-  <img src="{{photo.url}}" alt="{{photo.filename}}" />
+  <h2>图片</h2>
+  <a href="{{photo.url}}"><img src="{{photo.url}}" alt="{{photo.filename}}" /></a>
+  
 
 {% endblock %}

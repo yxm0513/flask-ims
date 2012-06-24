@@ -1,0 +1,14 @@
+{% extends 'admin/base.html' %}
+
+{% block right %}
+	<h3> 所有用户： </h3>
+	{% for user in users%}
+		<ul>
+		<li>ID: {{user.id}}</li>
+		<li>Name: {{user.username}}</li>
+		<li>Email: {{user.email}}</li>
+		</ul>
+	{% endfor %}	
+	
+    <a href="{{ url_for('admin.adduser')}}">Add User</a> | <a href="{{ url_for('admin.deluser')}}">Del User</a> 
+{% endblock %}

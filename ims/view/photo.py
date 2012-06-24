@@ -1,5 +1,5 @@
 from flask import Module, request, flash, url_for, redirect, \
-     abort
+     abort, current_app
 from flaskext.uploads import UploadSet, IMAGES, configure_uploads
 from flaskext.login import login_required, current_user
 from flaskext.sqlalchemy import Pagination
@@ -24,11 +24,10 @@ def page():
     Pagination(photo, )
 
 @mod.route('/upload', methods=['GET', 'POST'])
-@login_required
 def upload():
     form = UploadForm(request.form)
-    if not form.validate_on_submit():
-        flash('validate form failed', 'error')
+    if not form.validate:
+        flash('form validation failed', 'error')
         return render_template('photo/upload.html', form = form)
     if request.method == 'POST' and 'photo' in request.files:
         filename = photos.save(request.files['photo'])

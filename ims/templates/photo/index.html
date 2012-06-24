@@ -1,11 +1,15 @@
 {% extends theme("layout.html") %}
-{% block title %} Photo {% endblock %}
+{% block title %} 图片 {% endblock %}
 {% block main%}
-  <h2>All Photo</h2>
-   <input type=button value=Upload onclick="window.open('{{url_for('photo.upload')}}')">
-   <div class="imagewindow">
-    {%for image in photo %}
-        <img src="{{image.url}}" alt="{{image.filename}}" />
-    {%endfor%}
-   </div>
+  <h2>所有图片</h2>
+  	{% if photo %}
+	   <div class="imagewindow">
+	    {%for image in photo %}
+	        <a href="{{ url_for('show', id=image.id) }}"><img src="{{image.url}}" alt="{{image.filename}}" /></a>
+	    {%endfor%}
+	   </div>
+	{% else %}
+		<p>没有图片存在.</p>
+	{% endif%}
+	<a href="{{url_for('photo.upload')}}">上传 </a>
 {% endblock %}

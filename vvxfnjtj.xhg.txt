@@ -1,0 +1,48 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# Explicit paths specified without -i nor -o; assuming --only paths...
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	deleted:    TODO
+#	modified:   ims/db/ims.db
+#	modified:   ims/forms.py
+#	modified:   ims/templates/account/login.html
+#	modified:   ims/templates/feed/reader.html
+#	modified:   ims/templates/general/help.html
+#	modified:   ims/templates/general/index.html
+#	modified:   ims/templates/photo/index.html
+#	modified:   ims/templates/photo/show.html
+#	modified:   ims/templates/test/jquery_antimate.html
+#	modified:   ims/templates/test/jquery_slide.html
+#	modified:   ims/templates/todo/index.html
+#	modified:   ims/templates/wiki/show.html
+#	modified:   ims/view/general.py
+#	modified:   ims/view/photo.py
+#	modified:   run.py
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	docs/
+#	flask/blueprints.py
+#	flask/debughelpers.py
+#	flask/ext/
+#	flask/exthook.py
+#	flask/sessions.py
+#	flask/testsuite/
+#	flask/views.py
+#	flaskext/themes.py
+#	flaskext/wtf/form.py
+#	ims/templates/admin/database.html
+#	ims/templates/admin/themes.html
+#	ims/templates/admin/todos.html
+#	ims/templates/admin/users.html
+#	ims/templates/error/base.html
+#	ims/templates/general/about.html
+#	ims/theme.py
+#	ims/themes/
+#	ims/uploads/photos/
+

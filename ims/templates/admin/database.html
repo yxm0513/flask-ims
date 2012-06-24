@@ -1,0 +1,9 @@
+{% extends 'admin/base.html' %}
+
+{% block right %}
+	<h2> 数据库管理 </h2>
+        <ul>
+            <li><a href="{{ url_for('admin.initdb')}}">Create database</a></br>
+            <li><a href="{{ url_for('admin.dropdb')}}">Drop database</a></br>
+        </ul> 
+{% endblock %}

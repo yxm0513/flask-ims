@@ -1,0 +1,10 @@
+{% if current_user.is_authenticated() %}
+    欢迎, {{ current_user.name }} | <a href="{{ url_for('account.logout') }}">登出</a> 
+    | <a href="{{ url_for('general.settings') }}">设置</a>
+    {% if current_user.is_active() %}
+     {{ current_user.get_id() }} | <a href="{{ url_for('admin.index') }}"> 管理 </a>
+    {% endif%}
+{% else %}
+    <a href="{{ url_for('account.login') }}">登录</a>
+{% endif %}
+| <a href="{{ url_for('general.help') }}">帮助</a>

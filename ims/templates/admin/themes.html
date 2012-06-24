@@ -1,0 +1,11 @@
+{% extends 'admin/base.html' %}
+
+{% block right %}
+	<h2>Theme Selection</h2>
+	
+	{% for theme in themes %}
+	<p> {{ theme.name }} : <a href="{{ url_for('admin.settheme', ident=theme.identifier)}}"> 选择 </a></p>
+	
+	{% endfor %}
+
+{% endblock %}

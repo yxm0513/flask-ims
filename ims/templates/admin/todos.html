@@ -1,0 +1,26 @@
+{% extends 'admin/base.html' %}
+
+{% block right %}
+	<h3> 所有任务： </h3>
+    <table class=todos>
+      <tr>
+        <th>S
+        <th>#
+        <th>Title
+        <th>Date
+        <th>Status
+      {%- for todo in todos %}
+      <tr class=title>
+        <td><input type=checkbox name=S.{{ todo.id }}>
+        <td>{{ todo.id }}
+        <td>{{ todo.title }}
+        <td>{{ todo.pub_date.strftime('%Y-%m-%d %H:%M') }}
+        <td> {% if todo.done %} Done {%else%} Open {%endif%}
+      <tr class=text>
+        <td colspan=3>{{ todo.text }}</td>
+      {%- endfor %}
+    </table>
+	
+	<a href="{{ url_for('admin.addtodo')}}">Add Todo</a> | <a href="{{ url_for('admin.deltodo')}}">Del Todo</a>
+	
+{% endblock %}
